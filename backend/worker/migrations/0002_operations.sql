@@ -49,3 +49,52 @@ CREATE INDEX IF NOT EXISTS idx_meetings_building ON building_meetings(building_i
 CREATE INDEX IF NOT EXISTS idx_documents_expiry ON building_documents(building_id,expires_on);
 CREATE INDEX IF NOT EXISTS idx_incidents_building ON building_incidents(building_id,status,severity);
 CREATE INDEX IF NOT EXISTS idx_meter_readings_building ON meter_readings(building_id,meter_code,read_at);
+
+-- Multi-block structures and handover, attendance, permit and bank reconciliation.
+CREATE TABLE IF NOT EXISTS building_blocks(
+ id TEXT PRIMARY KEY,building_id TEXT NOT NULL REFERENCES buildings(id) ON DELETE CASCADE,
+ block_code TEXT NOT NULL,name TEXT NOT NULL,sort_order INTEGER NOT NULL DEFAULT 0,
+ created_at TEXT NOT NULL,UNIQUE(building_id,block_code)
+);
+ALTER TABLE units ADD COLUMN block_id TEXT REFERENCES building_blocks(id) ON DELETE SET NULL;
+CREATE INDEX IF NOT EXISTS idx_units_block ON units(block_id,status);
+CREATE TABLE IF NOT EXISTS bank_reconciliations(
+ id TEXT PRIMARY KEY,building_id TEXT NOT NULL REFERENCES buildings(id) ON DELETE CASCADE,
+ account_id TEXT REFERENCES finance_accounts(id) ON DELETE SET NULL,period_label TEXT NOT NULL,
+ opening_balance INTEGER NOT NULL,deposit_total INTEGER NOT NULL,withdrawal_total INTEGER NOT NULL,
+ closing_balance INTEGER NOT NULL,matched_count INTEGER NOT NULL DEFAULT 0,difference_amount INTEGER NOT NULL DEFAULT 0,
+ notes TEXT,status TEXT NOT NULL DEFAULT 'draft',prepared_by TEXT REFERENCES people(id) ON DELETE SET NULL,
+ created_at TEXT NOT NULL,updated_at TEXT
+);
+CREATE TABLE IF NOT EXISTS management_handovers(
+ id TEXT PRIMARY KEY,building_id TEXT NOT NULL REFERENCES buildings(id) ON DELETE CASCADE,
+ outgoing_person_id TEXT REFERENCES people(id) ON DELETE SET NULL,incoming_person_id TEXT REFERENCES people(id) ON DELETE SET NULL,
+ handover_date TEXT NOT NULL,cash_balance INTEGER,bank_balance INTEGER,open_items_json TEXT,
+ documents_json TEXT,keys_access_json TEXT,minutes TEXT,status TEXT NOT NULL DEFAULT 'draft',
+ created_by TEXT REFERENCES people(id) ON DELETE SET NULL,created_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS staff_attendance(
+ id TEXT PRIMARY KEY,building_id TEXT NOT NULL REFERENCES buildings(id) ON DELETE CASCADE,
+ staff_id TEXT NOT NULL REFERENCES building_staff(id) ON DELETE CASCADE,work_date TEXT NOT NULL,
+ shift_type TEXT NOT NULL,check_in TEXT,check_out TEXT,overtime_hours REAL NOT NULL DEFAULT 0,
+ handover_report TEXT,status TEXT NOT NULL DEFAULT 'recorded',created_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS unit_permits(
+ id TEXT PRIMARY KEY,building_id TEXT NOT NULL REFERENCES buildings(id) ON DELETE CASCADE,
+ unit_id TEXT NOT NULL REFERENCES units(id) ON DELETE CASCADE,permit_type TEXT NOT NULL,
+ starts_at TEXT NOT NULL,ends_at TEXT NOT NULL,contractor_name TEXT,security_deposit INTEGER,
+ protection_plan TEXT,inspection_report TEXT,status TEXT NOT NULL DEFAULT 'pending',
+ reviewed_by TEXT REFERENCES people(id) ON DELETE SET NULL,created_at TEXT NOT NULL,updated_at TEXT
+);
+CREATE TABLE IF NOT EXISTS building_events(
+ id TEXT PRIMARY KEY,building_id TEXT NOT NULL REFERENCES buildings(id) ON DELETE CASCADE,
+ event_at TEXT NOT NULL,category TEXT NOT NULL,title TEXT NOT NULL,related_entity TEXT,
+ actor_id TEXT REFERENCES people(id) ON DELETE SET NULL,reference_number TEXT,details TEXT,
+ created_at TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_blocks_building ON building_blocks(building_id,sort_order);
+CREATE INDEX IF NOT EXISTS idx_bank_recon_building ON bank_reconciliations(building_id,period_label);
+CREATE INDEX IF NOT EXISTS idx_handovers_building ON management_handovers(building_id,handover_date);
+CREATE INDEX IF NOT EXISTS idx_staff_attendance_date ON staff_attendance(building_id,work_date,staff_id);
+CREATE INDEX IF NOT EXISTS idx_unit_permits_unit ON unit_permits(unit_id,starts_at,ends_at,status);
+CREATE INDEX IF NOT EXISTS idx_building_events ON building_events(building_id,event_at,category);
