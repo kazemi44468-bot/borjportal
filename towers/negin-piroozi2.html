@@ -442,7 +442,7 @@ body.modal-open{overflow:hidden}
 
 \n.resident-switchbar{min-height:38px;padding:6px max(18px,calc((100% - 1180px)/2));display:flex;align-items:center;gap:18px;background:#123f3c;color:#e9eee8;font:11px/1.6 'Vazirmatn',Tahoma,sans-serif}.resident-switchbar a{color:#e7d2a5;text-decoration:none}.resident-switchbar a:hover{color:#fff}.resident-switchbar span{margin-inline-start:auto;color:#fff;font-weight:700}@media(max-width:600px){.resident-switchbar{gap:10px;font-size:9px;padding:7px 12px;flex-wrap:wrap}.resident-switchbar span{order:-1;width:100%;margin:0}}\n</style>
 </head>
-<body>\n<div class="resident-switchbar"><a href="negin-piroozi-intro.html">⌂ معرفی برج</a><span>پورتال اعضا</span><a href="negin-piroozi.html">پنل مدیریت</a><a href="negin-piroozi-app.html">نسخه موبایل</a></div>
+<body>\n<div class="resident-switchbar"><a href="negin-piroozi-intro.html">⌂ معرفی برج</a><span id="memberRoleLabel">پورتال ساکنان</span><a href="negin-piroozi.html">پنل مدیریت</a><a href="negin-piroozi-app.html">نسخه موبایل</a></div>
 <a href="#dashboard" class="skip-link">پرش به محتوا</a>
 
 <!-- هدر -->
@@ -1123,6 +1123,16 @@ body.modal-open{overflow:hidden}
     sections.forEach(section=>observer.observe(section));
   }
   const notif=$('#notifBtn');if(notif)notif.addEventListener('click',()=>{document.getElementById('notices')?.scrollIntoView({behavior:'smooth'});showToast('نمایش اطلاعیه‌های ساختمان');});
+
+  const memberRole=new URLSearchParams(location.search).get('role')==='owner'?'owner':'resident';
+  const memberLabel=document.getElementById('memberRoleLabel');
+  if(memberLabel)memberLabel.textContent=memberRole==='owner'?'پورتال مالک':'پورتال ساکنان';
+  const roleSections={owner:['dashboard','charge','payments','requests','notices','docs','profile','contact'],resident:['dashboard','requests','notices','facilities','guests','parcels','energy','neighbors','polls','support','settings','quick','contact']};
+  const allowedSections=new Set(roleSections[memberRole]);
+  document.querySelectorAll('.portal-section[id]').forEach(section=>{section.hidden=!allowedSections.has(section.id)});
+  document.querySelectorAll('#portalNav a[href^="#"]').forEach(link=>{const id=link.getAttribute('href').slice(1);link.hidden=!allowedSections.has(id)});
+  const moreMenu=document.querySelector('.nav-more-menu');
+  if(moreMenu){const more=document.querySelector('.nav-more');const visible=[...moreMenu.querySelectorAll('a')].some(link=>!link.hidden);if(more)more.hidden=!visible}
 })();
 </script>
 </body>
