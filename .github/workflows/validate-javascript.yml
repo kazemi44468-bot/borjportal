@@ -15,3 +15,15 @@ jobs:
         run: |
           node --check assets/js/app.js
           find . -name '*.js' -not -path './.git/*' -print0 | xargs -0 -n1 node --check
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const vm = require('node:vm');
+          const html = fs.readFileSync('towers/negin-piroozi2.html', 'utf8');
+          const scripts = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)]
+            .map(match => match[1]).filter(script => script.trim());
+          for (const [index, script] of scripts.entries()) {
+            new vm.Script(script, { filename: `negin-piroozi2.inline-${index}.js` });
+          }
+          if (!scripts.length) throw new Error('No inline scripts found in resident portal');
+          console.log(`Validated ${scripts.length} inline script(s) in resident portal.`);
+          NODE
