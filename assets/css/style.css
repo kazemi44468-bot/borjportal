@@ -11,3 +11,34 @@
 .photo-section{padding-top:12px}.photo-gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.photo-card{position:relative;overflow:hidden;margin:0;min-width:0;height:205px;border-radius:18px;background:#dce7df;box-shadow:0 8px 24px rgba(20,54,53,.08)}.photo-card.photo-wide{grid-column:span 2}.photo-card img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}.photo-card:hover img{transform:scale(1.045)}.photo-card figcaption{position:absolute;right:12px;bottom:12px;padding:6px 12px;border-radius:10px;background:rgba(16,47,51,.82);color:#fff;font-size:12px;backdrop-filter:blur(8px)}.photo-gallery-compact{grid-template-columns:repeat(5,minmax(0,1fr))}.photo-gallery-compact .photo-card{height:175px}
 @media(max-width:900px){.photo-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.photo-gallery-compact{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:680px){.photo-gallery{gap:10px}.photo-card{height:150px;border-radius:14px}.photo-card.photo-wide{grid-column:span 2}.photo-gallery-compact{grid-template-columns:repeat(2,minmax(0,1fr))}.photo-gallery-compact .photo-card{height:145px}.photo-card figcaption{right:8px;bottom:8px;font-size:10px;padding:5px 9px}}
+
+
+/* Compact navigation and controls; keep all heading sizes at or below 30px. */
+h1{font-size:clamp(27px,3.6vw,30px)}
+h2{font-size:clamp(22px,2.8vw,28px)}
+.header-inner{height:72px;gap:14px}
+.brand{min-width:0;gap:9px}
+.brand-mark{width:40px;height:40px;border-radius:12px}
+.brand-name{font-size:17px}
+.main-nav{gap:5px;padding:4px 6px;background:#f4f7f2;border:1px solid #e4e9df;border-radius:13px}
+.nav-link,.nav-drop>button{padding:5px 10px;border:1px solid transparent;border-radius:9px;background:#fff;font-size:12px;line-height:1.5;white-space:nowrap;gap:5px}
+.nav-link:hover,.nav-drop>button:hover,.nav-link.active{background:#e7f0e9;border-color:#d4e2d6;color:var(--green)}
+.nav-drop>button svg{width:11px;height:11px}
+.drop-menu{top:calc(100% + 7px);min-width:205px;border-radius:12px;padding:6px}
+.drop-menu a{padding:8px 9px;font-size:12px}
+.header-cta{display:none}
+.btn,.hero .btn{padding:7px 12px;border-radius:9px;font-size:12px;line-height:1.6;gap:6px;min-height:0}
+.btn:hover,.header-cta:hover{transform:none}
+.hero-actions{gap:8px;margin-top:20px}
+.banner .btn{padding:7px 12px}
+@media(max-width:900px){
+ .header-inner{gap:10px}
+ .main-nav{gap:3px}
+ .nav-link,.nav-drop>button{padding:5px 7px;font-size:11px}
+}
+@media(max-width:680px){
+ .header-inner{height:68px}
+ .main-nav{padding:10px}
+ .nav-link,.nav-drop>button{padding:8px 10px;font-size:12px}
+ .hero .btn,.btn{padding:7px 11px;font-size:12px}
+}
