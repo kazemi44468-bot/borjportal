@@ -110,8 +110,8 @@ renderAll();
 window.NeginPortalData={
 version:schemaVersion,provider:'localStorage',modules:modules.map(m=>({id:m.id,title:m.title,group:m.group,fields:m.fields.map(f=>({name:f[0],label:f[1],type:f[2],required:!!f[3]}))})),
 list:(id)=>list(id).map(r=>structuredClone(r)),
-create:(id,values,status='ثبت اولیه')=>{if(!modules.some(m=>m.id===id))throw new Error('unknown_module');const r={id:mkId(),status,createdAt:new Date().toISOString(),updatedAt:new Date().toISOString(),values:{...values}};(db.records[id]||=[]).push(r);save();renderAll();return structuredClone(r);},
-update:(id,recordId,patch)=>{const r=list(id).find(x=>x.id===recordId);if(!r)throw new Error('record_not_found');Object.assign(r,patch,{updatedAt:new Date().toISOString()});save();renderAll();return structuredClone(r);},
+create:(id,values,status='ثبت اولیه')=>{if(!modules.some(m=>m.id===id))throw new Error('unknown_module');const r={id:mkId(),status,createdAt:new Date().toISOString(),updatedAt:new Date().toISOString(),values:{...values}};(db.records[id]||=[]).push(r);audit('create',id,r.id,'ثبت از API محلی');save();renderAll();return structuredClone(r);},
+update:(id,recordId,patch)=>{const r=list(id).find(x=>x.id===recordId);if(!r)throw new Error('record_not_found');Object.assign(r,patch,{updatedAt:new Date().toISOString()});audit('update',id,r.id,'ویرایش از API محلی');save();renderAll();return structuredClone(r);},
 remove:(id,recordId)=>{audit('delete',id,recordId,'حذف از API محلی');db.records[id]=list(id).filter(x=>x.id!==recordId);save();renderAll();},
 export:()=>structuredClone(db),audit:()=>structuredClone(db.audit),
 subscribe:(callback)=>{window.addEventListener('negin:data-change',callback);return()=>window.removeEventListener('negin:data-change',callback);}
