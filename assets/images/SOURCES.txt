@@ -1,24 +1,41 @@
-Local architecture photography
-===============================
+کتابخانه تصاویر محلی برج پورتال
+================================
 
-All four files below are downloaded copies stored locally in this repository.
-Source pages identify them as free-to-use Pexels photographs. See the Pexels
-license for the applicable terms: https://www.pexels.com/license/
+این تصاویر عکس‌های نمونه معماری و فضاهای ساختمانی هستند و برای استفاده در وب‌سایت‌های فارسی مجموعه قابل استفاده مجددند. فایل‌ها در همین مخزن نگهداری می‌شوند؛ برای سایت‌های دیگر می‌توان آن‌ها را کپی کرد یا از مسیر فایل خام GitHub استفاده کرد. این تصاویر، عکس هیچ پروژه یا ساختمان مشخصی نیستند مگر آنکه جداگانه تصریح شود.
 
-1. residential-courtyard.jpg
-   Photo page: https://www.pexels.com/photo/modern-apartment-building-with-green-courtyard-31656168/
-   Subject: contemporary apartment complex and landscaped courtyard.
+مجوز: تصاویر از صفحات رایگان Pexels انتخاب شده‌اند. شرایط استفاده:
+https://www.pexels.com/license/
 
-2. residential-exterior.jpg
-   Photo page: https://www.pexels.com/photo/modern-residential-apartment-building-exterior-36355688/
-   Subject: modern residential building exterior.
+فهرست تصاویر
+------------
 
-3. residential-lobby.jpg
-   Photo page: https://www.pexels.com/photo/lobby-interior-design-5751698/
-   Subject: spacious lobby with large windows and indoor plants.
+- residential-courtyard.jpg — حیاط و فضای سبز مجتمع مسکونی
+  https://www.pexels.com/photo/modern-apartment-building-with-green-courtyard-31656168/
+- residential-exterior.jpg — نمای بیرونی ساختمان مسکونی
+  https://www.pexels.com/photo/modern-residential-apartment-building-exterior-36355688/
+- residential-lobby.jpg — لابی داخلی با نور طبیعی و گیاهان
+  https://www.pexels.com/photo/lobby-interior-design-5751698/
+- apartment-balconies.jpg — نمای ساختمان با بالکن‌ها
+  https://www.pexels.com/photo/exterior-of-an-apartment-building-with-balconies-17411447/
+- residential-facade-detail.jpg — نمای معماری ساختمان شهری
+  https://www.pexels.com/photo/modern-urban-apartment-building-exterior-view-31656143/
+- rooftop-pool.jpg — استخر و تراس بام
+  https://www.pexels.com/photo/terrace-and-pool-on-house-roof-20192218/
+- elevator-lobby.jpg — آسانسور و فضای ورودی ساختمان
+  https://www.pexels.com/photo/elevators-in-modern-residential-building-12407009/
+- underground-parking.jpg — پارکینگ سرپوشیده ساختمان
+  https://www.pexels.com/photo/underground-parking-lot-of-a-building-6188387/
+- building-maintenance.jpg — سرویس و تعمیر تجهیزات تهویه
+  https://www.pexels.com/search/hvac-system-repairs/
+- security-control-room.jpg — اتاق پایش و کنترل دوربین‌های امنیتی
+  https://www.pexels.com/photo/security-officer-in-dark-control-room-with-monitors-30692441/
+- residential-gym.jpg — فضای ورزشی و باشگاه
+  https://www.pexels.com/search/apartment-gym/
+- office-reception.jpg — فضای پذیرش و لابی اداری
+  https://www.pexels.com/photo/modern-reception-area-in-office-interior-design-34823913/
+- garden-walkway.jpg — مسیر پیاده‌روی و فضای سبز
+  https://www.pexels.com/search/courtyard-garden/
+- management-meeting-room.jpg — اتاق جلسه و فضای مدیریت
+  https://www.pexels.com/photo/meeting-room-in-office-20101490/
 
-4. apartment-balconies.jpg
-   Photo page: https://www.pexels.com/photo/exterior-of-an-apartment-building-with-balconies-17411447/
-   Subject: residential facade with balconies.
-
-These are illustrative architectural photographs, not photographs of Negin Piroozi Tower.
+یادآوری: تصاویر فقط برای استفاده تصویری و معرفی عمومی‌اند؛ برای نمایش یک ساختمان واقعی، باید عکس اختصاصی همان ساختمان جایگزین شود.
