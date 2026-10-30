@@ -361,6 +361,85 @@ section.portal-section{padding:22px 0;scroll-margin-top:calc(var(--header-h) + v
   .ph-tools{gap:5px}
   .ph-user .icon-btn{width:34px;height:34px}
 }
+
+/* تکمیل چیدمان و ناوبری نسخه اختصاصی */
+.portal-header{background:rgba(250,247,239,.97);box-shadow:0 3px 16px rgba(18,63,60,.07)}
+.ph-inner{gap:12px}
+.ph-brand{min-width:205px}
+.ph-mark{border:1px solid rgba(216,185,126,.45);font-size:22px}
+.ph-tools{min-width:180px}
+.nav-toggle{align-items:center;justify-content:center;flex-direction:column;gap:4px;padding:8px}
+.nav-toggle span{display:block;width:17px;height:2px;background:var(--green-deep);border-radius:2px}
+.tab-nav-inner{align-items:center;gap:4px}
+.tab-nav a{padding:11px 12px;border-radius:9px 9px 0 0}
+.nav-more{position:relative;flex-shrink:0}
+.nav-more summary{list-style:none;cursor:pointer;padding:10px 13px;border-radius:9px;color:var(--muted);font-size:12.5px;font-weight:700}
+.nav-more summary::-webkit-details-marker{display:none}
+.nav-more[open] summary,.nav-more summary:hover{background:var(--paper-2);color:var(--green-deep)}
+.nav-more-menu{position:absolute;top:calc(100% + 7px);left:0;z-index:80;min-width:220px;padding:7px;background:var(--white);border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow-md);display:grid;grid-template-columns:1fr}
+.nav-more-menu a{padding:9px 11px;border-radius:8px;font-size:12px;color:var(--ink-soft);white-space:nowrap}
+.nav-more-menu a:hover,.nav-more-menu a.active{background:var(--paper-2);color:var(--green-deep)}
+.demo-banner{display:flex;align-items:center;gap:12px;padding:12px 15px;margin:0 0 14px;border:1px solid #e5d6b5;border-right:4px solid var(--gold);border-radius:12px;background:linear-gradient(100deg,var(--white),var(--cream))}
+.demo-banner strong,.demo-banner small{display:block}
+.demo-banner strong{font-size:13px;color:var(--green-deep)}
+.demo-banner small{font-size:11.5px;color:var(--muted);line-height:1.7}
+.demo-pulse{width:9px;height:9px;flex:0 0 9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px rgba(177,138,77,.12)}
+.demo-tag{margin-right:auto;padding:3px 8px;border-radius:6px;background:var(--paper-2);color:var(--gold);font-size:9px;font-weight:800;letter-spacing:.8px}
+.portal-footer{background:var(--green-deep);color:#eaf1ed;padding:24px 0;margin-top:24px;border-top:3px solid var(--gold)}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.footer-inner strong{font-size:15px;color:#fff}
+.footer-inner p,.footer-inner small{margin:3px 0 0;color:#c4d3cc;font-size:11px}
+.footer-links{display:flex;gap:15px;flex-wrap:wrap}
+.footer-links a{font-size:11.5px;color:#e2d2ad}
+.footer-links a:hover{color:#fff}
+.muted-note{font-size:11px;color:var(--muted);line-height:1.8;margin:12px 0 0}
+.toast{position:fixed;bottom:22px;right:50%;transform:translate(50%,20px);opacity:0;pointer-events:none;z-index:150;background:var(--green-deep);color:#fff;padding:11px 18px;border-radius:10px;box-shadow:var(--shadow-lg);font-size:12px;transition:.22s;max-width:min(90vw,460px);text-align:center}
+.toast.show{opacity:1;transform:translate(50%,0)}
+.search-muted{display:none!important}
+body.modal-open{overflow:hidden}
+@media(max-width:980px){
+  .ph-brand{min-width:0}
+  .ph-inner{gap:8px}
+  .ph-user .ph-chip{display:none}
+  .tab-nav-inner{gap:0}
+  .tab-nav a{padding:11px 9px;font-size:11.5px}
+}
+@media(max-width:760px){
+  :root{--header-h:64px;--tab-h:0px}
+  .ph-inner{height:64px;padding:0 14px}
+  .ph-brand{font-size:13px;gap:8px}
+  .ph-mark{width:36px;height:36px;border-radius:10px}
+  .ph-brand small{font-size:9px}
+  .ph-tools{flex:0 0 auto;min-width:0}
+  .search-box{display:none}
+  .ph-user{gap:5px}
+  .ph-avatar{width:34px;height:34px;font-size:12px}
+  .ph-user .icon-btn{display:none}
+  .nav-toggle{display:flex;width:36px;height:36px}
+  .tab-nav{top:var(--header-h);overflow:visible;display:none;max-height:calc(100vh - 64px);overflow-y:auto;border-bottom:1px solid var(--line)}
+  .tab-nav.is-open{display:block}
+  .tab-nav-inner{padding:8px 14px 12px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;white-space:normal}
+  .tab-nav a{padding:9px 10px;border:1px solid var(--line);border-radius:8px;font-size:11.5px}
+  .nav-more{grid-column:1/-1}
+  .nav-more summary{border:1px solid var(--line);padding:9px 10px}
+  .nav-more-menu{position:static;box-shadow:none;margin-top:5px;grid-template-columns:repeat(2,minmax(0,1fr));min-width:0}
+  .nav-more-menu a{white-space:normal;font-size:11px}
+  .main{padding-top:14px}
+  .demo-banner{align-items:flex-start;padding:10px 11px}
+  .demo-banner small{font-size:10.5px}
+  .demo-tag{display:none}
+  .footer-inner{align-items:flex-start;flex-direction:column}
+  .footer-links{gap:12px}
+}
+@media(max-width:420px){
+  .ph-brand{font-size:12px}
+  .ph-mark{width:33px;height:33px}
+  .ph-avatar{display:none}
+  .tab-nav-inner{grid-template-columns:1fr 1fr}
+  .nav-more-menu{grid-template-columns:1fr}
+  .summary{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
@@ -394,35 +473,41 @@ section.portal-section{padding:22px 0;scroll-margin-top:calc(var(--header-h) + v
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
       </button>
     </div>
-    <button class="nav-toggle" aria-label="منو" aria-expanded="false"><span></span></button>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="باز کردن منو" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<!-- تب‌ها -->
-<nav class="tab-nav" aria-label="بخش‌های پورتال">
+<!-- منوی اصلی و دسته‌بندی‌شده -->
+<nav class="tab-nav" id="portalNav" aria-label="منوی بخش‌های پورتال">
   <div class="tab-nav-inner">
     <a href="#dashboard" class="active">داشبورد</a>
-    <a href="#charge">شارژ و پرداخت</a>
-    <a href="#payments">پرداخت‌ها</a>
-    <a href="#requests">درخواست‌ها</a>
-    <a href="#notices">اطلاعیه‌ها</a>
-    <a href="#facilities">رزرو امکانات</a>
-    <a href="#guests">مهمان</a>
-    <a href="#parcels">مرسولات</a>
-    <a href="#docs">قراردادها</a>
-    <a href="#energy">انرژی و آب</a>
-    <a href="#neighbors">همسایگان</a>
-    <a href="#polls">نظرسنجی</a>
+    <a href="#charge">مالی و پرداخت</a>
+    <a href="#requests">درخواست خدمات</a>
+    <a href="#facilities">امکانات و رزرو</a>
+    <a href="#guests">ورود و مهمان</a>
+    <a href="#energy">انرژی و تأسیسات</a>
     <a href="#support">پشتیبانی</a>
-    <a href="#settings">تنظیمات</a>
-    <a href="#quick">خدمات سریع</a>
-    <a href="#profile">پروفایل واحد</a>
-    <a href="#contact">تماس</a>
+    <details class="nav-more">
+      <summary>سایر بخش‌ها <span aria-hidden="true">⌄</span></summary>
+      <div class="nav-more-menu">
+        <a href="#payments">سوابق پرداخت و رسیدها</a>
+        <a href="#notices">اطلاعیه‌های ساختمان</a>
+        <a href="#parcels">مرسولات</a>
+        <a href="#docs">قراردادها و اسناد</a>
+        <a href="#neighbors">همسایگان و تماس اضطراری</a>
+        <a href="#polls">نظرسنجی و مشارکت</a>
+        <a href="#settings">تنظیمات و حریم خصوصی</a>
+        <a href="#quick">خدمات سریع</a>
+        <a href="#profile">پرونده واحد</a>
+        <a href="#contact">ارتباط با مدیریت</a>
+      </div>
+    </details>
   </div>
 </nav>
 
 <main class="main">
 <div class="container">
+  <div class="demo-banner" role="note"><span class="demo-pulse"></span><div><strong>محیط نمایشی برج نگین پیروزی</strong><small>اطلاعات، مبالغ، نام‌ها و وضعیت‌ها نمونه هستند؛ پرداخت، ثبت درخواست و سایر عملیات هنوز به سامانه اجرایی متصل نیستند.</small></div><span class="demo-tag">DEMO</span></div>
 
   <!-- داشبورد -->
   <section class="portal-section" id="dashboard">
@@ -901,19 +986,144 @@ section.portal-section{padding:22px 0;scroll-margin-top:calc(var(--header-h) + v
       <button class="quick" onclick="showToast('تماس اضطراری: ۱۲۵')"><span class="q-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span><h4>تماس اضطراری</h4><p>آتش‌نشانی، امداد</p></span></button>
       <button class="quick" onclick="showToast('سفارش خدمات (نمایشی)')"><span class="q-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg></span><span><h4>سایر خدمات</h4><p>خشکشویی، باربری</p></span></button>
       <button class="quick" onclick="openModal('guest-modal')"><span class="q-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span><span><h4>ثبت مهمان</h4><p>مجوز QR زمان‌دار</p></span></button>
-      <button class
-	  <!doctype html>
-<html>
-<head>
-  ... متا ...
-  <style>
-    تکه ۱ (CSS اول)
-    تکه ۲ (CSS دوم)
-  </style>
-</head>
-<body>
-  تکه ۳ (هدر، تب‌ها، داشبورد، شارژ، پرداخت‌ها، درخواست‌ها، اطلاعیه‌ها)
-  تکه ۴ (رزرو، مهمان، مرسولات، قراردادها، انرژی، همسایگان، نظرسنجی، پشتیبانی، تنظیمات، خدمات سریع، پروفایل، تماس)
-  مودال‌ها + فوتر + اسکریپت
+
+      <button class="quick" onclick="openModal('guest-modal')"><span class="q-icon">＋</span><span><h4>ثبت مهمان</h4><p>ثبت مشخصات و زمان ورود</p></span></button>
+      <button class="quick" onclick="document.getElementById('profile').scrollIntoView({behavior:'smooth'})"><span class="q-icon">⌂</span><span><h4>پرونده واحد</h4><p>اطلاعات و ساکنان</p></span></button>
+    </div>
+  </section>
+
+  <!-- پرونده واحد -->
+  <section class="portal-section" id="profile">
+    <div class="section-title"><h2>پرونده دیجیتال واحد</h2><span class="hint">اطلاعات نمونه واحد ۱۲۰۴</span></div>
+    <div class="layout">
+      <div class="card">
+        <div class="card-head"><h3>مشخصات واحد</h3><span class="pill info">پرونده نمایشی</span></div>
+        <div class="profile-grid">
+          <div class="profile-item"><div class="label">شماره واحد</div><div class="value">۱۲۰۴</div></div>
+          <div class="profile-item"><div class="label">بلوک / طبقه</div><div class="value">برج اصلی / دوازدهم</div></div>
+          <div class="profile-item"><div class="label">مساحت</div><div class="value">۱۴۵ مترمربع</div></div>
+          <div class="profile-item"><div class="label">وضعیت سکونت</div><div class="value">ساکن</div></div>
+          <div class="profile-item"><div class="label">تعداد پارکینگ</div><div class="value">۲ جایگاه</div></div>
+          <div class="profile-item"><div class="label">انباری</div><div class="value">شماره ۴۸</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h3>اعضای پرونده</h3></div>
+        <div class="neighbor"><span><span class="n-name">محمدرضا رضایی</span><br><span class="g-meta">مالک / مدیر پرونده</span></span><span class="pill paid">اصلی</span></div>
+        <div class="neighbor"><span><span class="n-name">اعضای خانواده</span><br><span class="g-meta">اطلاعات قابل تکمیل توسط مدیریت</span></span><span class="pill info">۲ نفر</span></div>
+        <p class="muted-note">اطلاعات هویتی این بخش صرفاً نمونه است و باید با داده‌های مجاز و تأییدشده جایگزین شود.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ارتباط با مدیریت -->
+  <section class="portal-section" id="contact">
+    <div class="section-title"><h2>ارتباط با مدیریت ساختمان</h2><span class="hint">راه‌های ارتباط و ثبت پیام</span></div>
+    <div class="layout">
+      <div class="card">
+        <div class="card-head"><h3>واحدهای پاسخ‌گو</h3></div>
+        <div class="contact-row"><div><div class="c-name">دفتر مدیریت</div><div class="c-role">امور اداری و پیگیری درخواست‌ها</div></div><a href="tel:02100000000">۰۲۱-۰۰۰۰۰۰۰۰</a></div>
+        <div class="contact-row"><div><div class="c-name">نگهبانی و پذیرش</div><div class="c-role">تردد، مهمان و مرسولات</div></div><a href="tel:02100000101">داخلی ۱۰۱</a></div>
+        <div class="contact-row"><div><div class="c-name">تأسیسات</div><div class="c-role">خرابی‌ها و موارد فنی مشاعات</div></div><a href="tel:02100000102">داخلی ۱۰۲</a></div>
+        <div class="contact-row"><div><div class="c-name">امور مالی</div><div class="c-role">صورتحساب و مغایرت پرداخت</div></div><a href="tel:02100000103">داخلی ۱۰۳</a></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h3>ارسال پیام به مدیریت</h3></div>
+        <form class="contact-form demo-form">
+          <div class="form-row"><div class="form-group"><label for="contactName">نام و نام خانوادگی</label><input id="contactName" required placeholder="نام شما"></div><div class="form-group"><label for="contactSubject">موضوع</label><select id="contactSubject"><option>پیگیری درخواست</option><option>امور مالی</option><option>پیشنهاد و انتقاد</option><option>سایر موارد</option></select></div></div>
+          <div class="form-group"><label for="contactMessage">متن پیام</label><textarea id="contactMessage" required placeholder="پیام خود را بنویسید..."></textarea></div>
+          <button class="btn btn-primary" type="submit">ثبت پیام نمایشی</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer class="portal-footer">
+  <div class="container footer-inner">
+    <div><strong>برج نگین پیروزی</strong><p>پورتال اختصاصی مدیریت و خدمات ساکنان</p></div>
+    <div class="footer-links"><a href="#dashboard">بازگشت به داشبورد</a><a href="#support">راهنما و پشتیبانی</a><a href="#contact">ارتباط با مدیریت</a></div>
+    <small>نسخه نمایشی رابط کاربری · اطلاعات نمونه</small>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="new-request-modal" role="dialog" aria-modal="true" aria-labelledby="requestModalTitle">
+  <div class="modal"><button class="modal-close" type="button" onclick="closeModal('new-request-modal')" aria-label="بستن">×</button><h3 id="requestModalTitle">ثبت درخواست خدمات</h3><p class="modal-sub">فرم نمونه برای نمایش گردش کار درخواست‌های ساکنان</p>
+    <form class="contact-form demo-form"><div class="form-row"><div class="form-group"><label>دسته درخواست</label><select required><option>تأسیسات و لوله‌کشی</option><option>برق و روشنایی</option><option>نظافت</option><option>آسانسور</option><option>سایر</option></select></div><div class="form-group"><label>اولویت</label><select><option>عادی</option><option>فوری</option><option>اضطراری</option></select></div></div><div class="form-group"><label>شرح درخواست</label><textarea required placeholder="شرح مشکل و محل آن را بنویسید"></textarea></div><button class="btn btn-primary" type="submit">ثبت آزمایشی درخواست</button></form>
+  </div>
+</div>
+<div class="modal-overlay" id="guest-modal" role="dialog" aria-modal="true" aria-labelledby="guestModalTitle">
+  <div class="modal"><button class="modal-close" type="button" onclick="closeModal('guest-modal')" aria-label="بستن">×</button><h3 id="guestModalTitle">ثبت مهمان</h3><p class="modal-sub">ثبت آزمایشی مشخصات مراجعه‌کننده</p>
+    <form class="contact-form demo-form"><div class="form-group"><label>نام مهمان</label><input required placeholder="نام و نام خانوادگی"></div><div class="form-row"><div class="form-group"><label>تاریخ مراجعه</label><input type="text" placeholder="۱۴۰۵/۰۹/۱۰"></div><div class="form-group"><label>ساعت ورود</label><input type="text" placeholder="۱۸:۳۰"></div></div><div class="form-group"><label>پلاک خودرو (اختیاری)</label><input placeholder="شماره پلاک"></div><button class="btn btn-primary" type="submit">ثبت آزمایشی مهمان</button></form>
+  </div>
+</div>
+<div class="modal-overlay" id="ticket-modal" role="dialog" aria-modal="true" aria-labelledby="ticketModalTitle">
+  <div class="modal"><button class="modal-close" type="button" onclick="closeModal('ticket-modal')" aria-label="بستن">×</button><h3 id="ticketModalTitle">ثبت تیکت پشتیبانی</h3><p class="modal-sub">ثبت آزمایشی پیام برای واحد پشتیبانی</p>
+    <form class="contact-form demo-form"><div class="form-group"><label>موضوع تیکت</label><input required placeholder="موضوع را وارد کنید"></div><div class="form-group"><label>شرح مسئله</label><textarea required placeholder="جزئیات مورد را بنویسید"></textarea></div><button class="btn btn-primary" type="submit">ثبت آزمایشی تیکت</button></form>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  'use strict';
+  const $=(selector,root=document)=>root.querySelector(selector);
+  const $=(selector,root=document)=>Array.from(root.querySelectorAll(selector));
+  window.showToast=function(message){
+    const toast=$('#toast'); if(!toast)return;
+    toast.textContent=message; toast.classList.add('show');
+    clearTimeout(window.__toastTimer); window.__toastTimer=setTimeout(()=>toast.classList.remove('show'),2800);
+  };
+  window.openModal=function(id){const modal=document.getElementById(id);if(modal){modal.classList.add('open');document.body.classList.add('modal-open');const focus=modal.querySelector('input,select,textarea,button');if(focus)focus.focus();}};
+  window.closeModal=function(id){const modal=document.getElementById(id);if(modal)modal.classList.remove('open');if(!$('.modal-overlay.open'))document.body.classList.remove('modal-open');};
+  window.selectPoll=function(button){
+    const group=button.closest('.poll-options'); if(!group)return;
+    $('.poll-option',group).forEach(item=>item.classList.remove('selected'));
+    button.classList.add('selected'); showToast('انتخاب شما در این پیش‌نمایش ثبت شد؛ رأی واقعی ارسال نشده است.');
+  };
+  const nav=$('#portalNav'),toggle=$('#navToggle');
+  if(toggle&&nav){
+    toggle.addEventListener('click',()=>{
+      const open=nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded',String(open));
+      toggle.setAttribute('aria-label',open?'بستن منو':'باز کردن منو');
+    });
+    $('a',nav).forEach(link=>link.addEventListener('click',()=>{
+      nav.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');
+      const details=$('.nav-more',nav);if(details)details.open=false;
+    }));
+  }
+  const theme=$('#themeToggle'),darkSwitch=$('#darkModeSwitch');
+  function setTheme(dark){document.documentElement.dataset.theme=dark?'dark':'light';if(darkSwitch)darkSwitch.checked=dark;}
+  if(theme)theme.addEventListener('click',()=>{const dark=document.documentElement.dataset.theme!=='dark';setTheme(dark);showToast(dark?'حالت تیره فعال شد':'حالت روشن فعال شد');});
+  if(darkSwitch)darkSwitch.addEventListener('change',()=>setTheme(darkSwitch.checked));
+  const search=$('#globalSearch');
+  if(search)search.addEventListener('input',()=>{
+    const term=search.value.trim().toLocaleLowerCase('fa');
+    if(!term){$('.portal-section').forEach(section=>section.classList.remove('search-muted'));return;}
+    let first=null;
+    $('.portal-section').forEach(section=>{
+      const match=section.innerText.toLocaleLowerCase('fa').includes(term);
+      section.classList.toggle('search-muted',!match);if(match&&!first)first=section;
+    });
+    if(first)first.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  document.addEventListener('keydown',event=>{
+    if(event.key==='/'&&!/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)){event.preventDefault();if(search)search.focus();}
+    if(event.key==='Escape'){$('.modal-overlay.open').forEach(modal=>closeModal(modal.id));}
+  });
+  $('.modal-overlay').forEach(modal=>modal.addEventListener('click',event=>{if(event.target===modal)closeModal(modal.id);}));
+  $('.demo-form').forEach(form=>form.addEventListener('submit',event=>{event.preventDefault();form.reset();closeModal(form.closest('.modal-overlay')?.id||'');showToast('این فرم در پیش‌نمایش است؛ اطلاعات به سرور ارسال نشد.');}));
+  const sections=$('.portal-section'),links=$('.tab-nav-inner > a, .nav-more-menu a');
+  if('IntersectionObserver' in window){
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{if(entry.isIntersecting){links.forEach(link=>link.classList.toggle('active',link.getAttribute('href')==='#'+entry.target.id));}});
+    },{rootMargin:'-22% 0px -68% 0px',threshold:0});
+    sections.forEach(section=>observer.observe(section));
+  }
+  const notif=$('#notifBtn');if(notif)notif.addEventListener('click',()=>{document.getElementById('notices')?.scrollIntoView({behavior:'smooth'});showToast('نمایش اطلاعیه‌های ساختمان');});
+})();
+</script>
 </body>
 </html>
