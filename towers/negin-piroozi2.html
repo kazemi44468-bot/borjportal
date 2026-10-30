@@ -568,6 +568,24 @@ body.modal-open{overflow:hidden}
 .computer-preview-actions .btn{display:inline-flex;align-items:center;gap:9px}
 .computer-anchor-link{font-size:10px;font-weight:600;color:var(--green)}
 @media(max-width:760px){.computer-center-preview{grid-template-columns:1fr}.computer-preview-image,.computer-preview-image>img{min-height:185px;height:185px}.computer-preview-content h3{font-size:15px}}
+
+/* تناسب منوی مالکین: گزینه‌های پرکاربرد در یک ردیف، زیرمنوهای فشرده */
+.tab-nav{overflow:visible}
+.tab-nav-inner{display:flex;flex-wrap:nowrap;align-items:center;gap:4px;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
+.tab-nav-inner::-webkit-scrollbar{display:none}
+.tab-nav-inner>a{flex:0 0 auto;padding:7px 10px;font-size:11px;white-space:nowrap}
+.nav-more{flex:0 0 auto}
+.nav-more summary{padding:7px 9px;font-size:11px;white-space:nowrap}
+.nav-more-menu{min-width:360px;max-width:min(520px,88vw);gap:7px;padding:9px}
+.nav-menu-group{gap:2px}
+.nav-menu-group>b{padding:4px 7px 5px;font-size:9.5px}
+.nav-more-menu a{padding:5px 7px;font-size:10.5px;line-height:1.55}
+@media(max-width:760px){
+ .tab-nav-inner{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;white-space:normal;overflow:visible}
+ .tab-nav-inner>a{white-space:normal;padding:7px 8px;font-size:10.5px}
+ .nav-more-menu{min-width:0;max-width:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding:8px}
+ .nav-more-menu a{white-space:normal;font-size:10px;padding:5px 6px}
+}
 </style>
   <link rel="stylesheet" href="../assets/css/negin-expansion.css?v=1">
 <link rel="stylesheet" href="../assets/css/negin-member-extras.css?v=2">
@@ -619,18 +637,22 @@ body.modal-open{overflow:hidden}
     <a href="#dashboard" class="active">داشبورد</a>
     <a href="#charge">مالی</a>
     <a href="#requests">درخواست‌ها</a>
+    <a href="#facilities">امکانات</a>
+    
+    <a href="#profile">پرونده واحد</a>
+    <a href="#contact">ارتباط</a>
     <details class="nav-more">
       <summary>مرکز خدمات <svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="nav-more-menu">
         <div class="nav-menu-group"><b>خرید و سرگرمی</b><a href="negin-market.html">بازار برج و سبد خرید</a><a href="negin-media.html">چندرسانه‌ای، فیلم و موسیقی</a><a href="negin-games.html">باشگاه بازی و مسابقات</a></div>
-        <div class="nav-menu-group"><b>خدمات دیجیتال و روزمره</b><a href="#computer-center">معرفی مرکز خدمات دیجیتال</a><a href="negin-computer.html">ورود و ثبت درخواست خدمات رایانه‌ای</a><a href="#booking">رزرو و سفارش خدمات</a><a href="#technical">تعمیرات و خدمات فنی</a><a href="#homecare">خدمات منزل و نظافت</a><a href="#facilities">امکانات و فضاهای مشترک</a></div>
+        <div class="nav-menu-group"><b>خدمات دیجیتال و روزمره</b><a href="#computer-center">معرفی مرکز خدمات دیجیتال</a><a href="negin-computer.html">ورود و ثبت درخواست خدمات رایانه‌ای</a><a href="#booking">رزرو و سفارش خدمات</a><a href="#technical">تعمیرات و خدمات فنی</a><a href="#homecare">خدمات منزل و نظافت</a></div>
       </div>
     </details>
     <details class="nav-more">
       <summary>ساختمان و تردد <svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="nav-more-menu">
         <div class="nav-menu-group"><b>امور ساختمان</b><a href="#guests">مهمان و تردد</a><a href="#energy">انرژی و تأسیسات</a><a href="#parcels">مرسولات</a><a href="#notices">اطلاعیه‌ها</a><a href="#payments">سوابق پرداخت و رسیدها</a></div>
-        <div class="nav-menu-group"><b>پرونده و ارتباط</b><a href="#docs">قراردادها و اسناد</a><a href="#profile">پرونده واحد و اعضا</a><a href="#neighbors">همسایگان و تماس اضطراری</a><a href="#polls">نظرسنجی و مشارکت</a><a href="#contact">ارتباط با مدیریت</a><a href="#settings">تنظیمات و حریم خصوصی</a></div>
+        <div class="nav-menu-group"><b>پرونده و ارتباط</b><a href="#docs">قراردادها و اسناد</a><a href="#neighbors">همسایگان و تماس اضطراری</a><a href="#polls">نظرسنجی و مشارکت</a><a href="#settings">تنظیمات و حریم خصوصی</a></div>
       </div>
     </details>
     <a href="#support">پشتیبانی</a>
