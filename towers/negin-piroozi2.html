@@ -1291,7 +1291,7 @@ body.modal-open{overflow:hidden}
     });
     $$('a',nav).forEach(link=>link.addEventListener('click',()=>{
       nav.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');
-      $('.nav-more',nav).forEach(details=>details.open=false);
+      nav.querySelectorAll('.nav-more').forEach(details=>details.open=false);
     }));
   }
   const theme=$('#themeToggle'),darkSwitch=$('#darkModeSwitch');
