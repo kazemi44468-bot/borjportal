@@ -56,3 +56,8 @@ body[data-page="negin"] .op-calc-result span,.op-calc-result small{color:#6c7c6e
 body[data-page="negin"] .op-calc-result b{color:#315f50;font-size:15px}
 body[data-page="negin"] .op-calculator>p{margin:8px 0 0;color:#8b8c7b;font-size:8px;line-height:1.8}
 @media(max-width:600px){body[data-page="negin"] .op-calc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+body[data-page="negin"] .op-entry-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 12px;padding:10px 13px;border:1px solid #e4e8dc;border-radius:11px;background:linear-gradient(110deg,#f7f8f1,#fffefa)}
+body[data-page="negin"] .op-entry-bar b,.op-entry-bar small{display:block}.op-entry-bar b{color:#3f604e;font-size:11px}.op-entry-bar small{margin-top:2px;color:#859186;font-size:9px}
+body[data-page="negin"] .op-entry-bar.is-open{border-color:#c7d6c6}
+@media(max-width:560px){body[data-page="negin"] .op-entry-bar{align-items:flex-start;flex-direction:column}.op-entry-bar .op-btn{width:100%}}
