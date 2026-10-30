@@ -35,3 +35,6 @@ This repository scaffold is not a live backend until D1 is provisioned, the Work
 
 ## Expanded tower operations
 Apply migrations/0002_operations.sql after the core migration. The operational data model and proposed REST contract are documented in docs/NEGIN-OPERATIONS-API.md. The static Negin management workspace currently uses browser-local storage and is not connected to this Worker or D1.
+
+
+Apply `migrations/0003_advanced_operations.sql` after `0002_operations.sql` for installment-based obligations, insurance policies, incentive/late-fee rules, staged legal notices, confidential violation reports, reserve funds, unit clearance certificates and access-control device registries. These records are schema-ready only; the static UI continues to store demo data in the current browser.
