@@ -45,3 +45,14 @@ body[data-page="negin"] .op-footer-note{margin-top:12px}
 @media(max-width:900px){body[data-page="negin"] .op-dashboard-grid{grid-template-columns:1fr}.op-form{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){body[data-page="negin"] .op-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.op-module-grid{grid-template-columns:1fr}.op-form{grid-template-columns:1fr}.op-form .op-wide{grid-column:1}.op-work-head{flex-direction:column}.op-toolbar>*{flex:1 1 100%}.op-module-tools>*{flex:1 1 100%}}
 @media print{body[data-page="negin"] .op-toolbar,body[data-page="negin"] .op-module-tools,body[data-page="negin"] .op-form,body[data-page="negin"] .op-delete,body[data-page="negin"] .negin-app-nav,body[data-page="negin"] .tower-site-header,body[data-page="negin"] .tower-site-footer{display:none!important}body[data-page="negin"] .op-table{min-width:0;font-size:8pt}body[data-page="negin"] .op-workspace{border:0;padding:0}}
+
+body[data-page="negin"] .op-calculator{margin:10px 0 12px;padding:12px;border:1px solid #e7e3d4;border-radius:11px;background:linear-gradient(140deg,#fffefa,#f8f8ef)}
+body[data-page="negin"] .op-calculator h5{margin:0 0 9px;color:#45634f;font-size:11px}
+body[data-page="negin"] .op-calc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+body[data-page="negin"] .op-calc-grid label{display:grid;gap:4px;color:#7b887d;font-size:8px}
+body[data-page="negin"] .op-calc-grid input{width:100%;min-width:0;padding:7px;border:1px solid #e0e6dc;border-radius:7px;background:white;color:#345544;font:inherit;font-size:10px}
+body[data-page="negin"] .op-calc-result{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:10px 0;padding:9px 11px;border-radius:8px;background:#edf3ec}
+body[data-page="negin"] .op-calc-result span,.op-calc-result small{color:#6c7c6e;font-size:9px}
+body[data-page="negin"] .op-calc-result b{color:#315f50;font-size:15px}
+body[data-page="negin"] .op-calculator>p{margin:8px 0 0;color:#8b8c7b;font-size:8px;line-height:1.8}
+@media(max-width:600px){body[data-page="negin"] .op-calc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
