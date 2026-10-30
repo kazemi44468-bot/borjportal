@@ -1195,7 +1195,7 @@ body.modal-open{overflow:hidden}
   const memberRole=new URLSearchParams(location.search).get('role')==='owner'?'owner':'resident';
   const memberLabel=document.getElementById('memberRoleLabel');
   if(memberLabel)memberLabel.textContent=memberRole==='owner'?'پورتال مالک':'پورتال ساکنان';
-  const roleSections={owner:['dashboard','charge','payments','requests','notices','docs','profile','contact','market','food','delivery','technical','homecare','consulting','media'],resident:['dashboard','requests','notices','facilities','guests','parcels','energy','neighbors','polls','support','settings','quick','contact','market','food','delivery','technical','homecare','consulting','media']};
+  const roleSections={owner:['dashboard','charge','payments','requests','notices','facilities','guests','parcels','docs','energy','neighbors','polls','support','settings','quick','profile','contact','market','food','delivery','technical','homecare','consulting','media'],resident:['dashboard','charge','payments','requests','notices','facilities','guests','parcels','docs','energy','neighbors','polls','support','settings','quick','profile','contact','market','food','delivery','technical','homecare','consulting','media']};
   const allowedSections=new Set(roleSections[memberRole]);
   document.querySelectorAll('.portal-section[id]').forEach(section=>{section.hidden=!allowedSections.has(section.id)});
   document.querySelectorAll('#portalNav a[href^="#"]').forEach(link=>{const id=link.getAttribute('href').slice(1);link.hidden=!allowedSections.has(id)});
