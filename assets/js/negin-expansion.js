@@ -19,7 +19,7 @@ const group=document.createElement('div');group.className='nav-menu-group';group
 const key='negin-admin-workspace-v2';
 let db={version:3,records:{},audit:[]};try{const saved=JSON.parse(localStorage.getItem(key)||'null');if(saved&&saved.records)db={...db,...saved};}catch(_){}
 db.records=db.records||{};db.records.messages=Array.isArray(db.records.messages)?db.records.messages:[];db.audit=Array.isArray(db.audit)?db.audit:[];
-let currentUnit=new URLSearchParams(location.search).get('unit')||localStorage.getItem('negin-resident-unit')||'';
+let currentUnit=new URLSearchParams(location.search).get('unit')||localStorage.getItem('negin-resident-unit')||'';document.querySelectorAll('[data-expansion-form] [name="unit"]').forEach(input=>input.value=currentUnit);
 const write=()=>{try{localStorage.setItem(key,JSON.stringify(db));window.dispatchEvent(new CustomEvent('negin:data-change',{detail:{version:3}}));return true;}catch(_){window.showToast?.('ذخیره در مرورگر انجام نشد.');return false;}};
 function render(id){const target=document.querySelector('[data-expansion-records="'+id+'"]');if(!target)return;const items=db.records.messages.filter(r=>r.values?.sourceSection===id&&(!currentUnit||String(r.values.unit)===String(currentUnit)));target.innerHTML=items.length?items.slice().reverse().map(r=>'<div class="expansion-record"><div><strong>'+esc(r.values.subject)+'</strong><small>'+esc(r.values.channel)+' · '+esc(r.values.message||'بدون توضیح')+' · '+esc(new Date(r.createdAt).toLocaleDateString('fa-IR'))+'</small></div><em>'+esc(r.status)+'</em></div>').join(''):'<div class="booking-empty">هنوز درخواستی برای این واحد در این بخش ثبت نشده است.</div>';}
 sections.forEach(s=>render(s.id));
