@@ -1,0 +1,30 @@
+/* Negin Piroozi — integrated resident and building operations modules */
+.portal-section.expansion-section{margin-top:22px;padding:20px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm)}
+.expansion-intro{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin:-4px 0 16px}
+.expansion-intro p{margin:4px 0 0;color:var(--muted);font-size:12px;line-height:1.9}
+.expansion-tag{flex:0 0 auto;padding:5px 9px;border:1px solid var(--line);border-radius:30px;background:var(--paper-2);color:var(--muted);font-size:10px}
+.expansion-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.expansion-card{min-width:0;padding:14px;border:1px solid var(--line);border-radius:13px;background:linear-gradient(145deg,var(--white),var(--paper));}
+.expansion-card h3{margin:0 0 5px;color:var(--green-deep);font-size:13px}
+.expansion-card p{margin:0 0 11px;color:var(--muted);font-size:11px;line-height:1.9}
+.expansion-card .exp-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.expansion-card .exp-meta span{padding:3px 7px;border-radius:20px;background:var(--paper-2);color:var(--muted);font-size:9px}
+.expansion-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}
+.expansion-form label{display:grid;gap:4px;color:var(--muted);font-size:10px}
+.expansion-form input,.expansion-form select,.expansion-form textarea{width:100%;min-width:0;padding:8px 9px;border:1px solid var(--line);border-radius:8px;background:var(--white);color:var(--ink);font:inherit;font-size:11px}
+.expansion-form textarea{grid-column:1/-1;min-height:64px;resize:vertical}
+.expansion-form button{grid-column:1/-1;justify-self:start}
+.expansion-records{display:grid;gap:7px;margin-top:12px}
+.expansion-record{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:9px 10px;border:1px solid var(--line);border-radius:9px;background:var(--white)}
+.expansion-record strong,.expansion-record small{display:block}
+.expansion-record strong{font-size:11px;color:var(--ink-soft)}
+.expansion-record small{margin-top:2px;color:var(--muted);font-size:9px;line-height:1.7}
+.expansion-record em{flex:0 0 auto;color:var(--gold);font-size:9px;font-style:normal}
+.expansion-footnote{margin-top:13px;padding:9px 11px;border-right:3px solid var(--gold);border-radius:8px;background:var(--cream);color:var(--muted);font-size:10px;line-height:1.9}
+.expansion-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:12px 0}
+.expansion-kpis article{padding:11px;border:1px solid var(--line);border-radius:10px;background:var(--paper)}
+.expansion-kpis small,.expansion-kpis b{display:block}
+.expansion-kpis small{color:var(--muted);font-size:9px}
+.expansion-kpis b{margin-top:5px;color:var(--green-deep);font-size:17px}
+@media(max-width:850px){.expansion-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.expansion-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.portal-section.expansion-section{padding:13px;margin-top:15px}.expansion-grid{grid-template-columns:1fr;gap:8px}.expansion-intro{flex-direction:column;gap:7px}.expansion-form{grid-template-columns:1fr}.expansion-form textarea,.expansion-form button{grid-column:1}.expansion-record{flex-direction:column;gap:3px}.expansion-record em{align-self:flex-start}}
