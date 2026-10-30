@@ -381,3 +381,17 @@ h2{font-size:clamp(22px,2.8vw,28px)}
 .negin-deployment p{max-width:750px;margin:0;color:var(--muted);font-size:11px;line-height:2}
 @media(max-width:900px){.negin-app-layout{grid-template-columns:150px minmax(0,1fr)}.negin-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.negin-module-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.negin-content-grid{grid-template-columns:1fr}}
 @media(max-width:680px){.negin-product-page{padding-top:24px}.negin-product-head{align-items:flex-start;flex-direction:column}.negin-product-head h2{font-size:20px}.negin-app-top{align-items:flex-start;flex-direction:column}.negin-app-layout{grid-template-columns:1fr}.negin-app-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-left:0;border-bottom:1px solid #dce5dc;padding:11px}.negin-app-nav>b{grid-column:1/-1}.negin-tab{text-align:center;padding:8px 5px;font-size:10px}.negin-app-content{padding:12px}.negin-kpis{gap:7px}.negin-kpis article{padding:10px}.negin-kpis b{font-size:11px}.negin-module-cards{grid-template-columns:1fr}.negin-module-cards p{min-height:0}.negin-demo-form{grid-template-columns:1fr;padding:11px}.negin-demo-form label.wide{grid-column:auto}.negin-deployment{align-items:flex-start;flex-direction:column;padding:16px}.negin-record-list>div{align-items:flex-start}}
+
+/* Independent tenant identity: Negin Piroozi */
+.tower-site-topline{height:5px;background:linear-gradient(90deg,#b99a60,#e6d7b4,#315f52)}
+.tower-site-header{position:sticky;top:0;z-index:40;background:rgba(255,254,250,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.tower-site-header-inner{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.tower-identity{display:flex;align-items:center;gap:11px;min-width:225px}.tower-identity-mark{width:43px;height:43px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(145deg,#315f52,#173d38);color:#e8d5a6;font-size:24px}
+.tower-identity b,.tower-identity small{display:block}.tower-identity b{font-size:17px;color:#21463e}.tower-identity small{font-size:10px;color:var(--muted)}
+.tower-site-nav{display:flex;align-items:center;gap:7px}.tower-site-nav a{padding:9px 11px;border-radius:10px;font-size:12px;color:#415b56}.tower-site-nav a:hover{background:#eaf2ed;color:#245d52}
+.tower-login-link{border:1px solid #b99a60;border-radius:11px;padding:8px 15px;color:#315f52;font-size:12px;font-weight:700;white-space:nowrap}
+.tower-site-footer{margin-top:45px;background:#173c38;color:#e8eee9;padding:24px 0}.tower-site-footer .container{display:flex;align-items:center;justify-content:space-between;gap:15px}.tower-site-footer b,.tower-site-footer span{display:block}.tower-site-footer b{font-size:14px}.tower-site-footer span,.tower-site-footer small{font-size:10px;color:#c1d0c7}
+.negin-product-head{padding-top:14px}.negin-product-head h2{font-size:25px}.negin-product-head p{font-size:13px;color:var(--muted)}
+.negin-app-shell{scroll-margin-top:100px}.negin-app-top{background:linear-gradient(110deg,#1c4d43,#2d6959)!important}
+.negin-deployment{scroll-margin-top:100px}
+@media(max-width:760px){.tower-site-header-inner{min-height:68px;flex-wrap:wrap;padding:9px 0}.tower-site-nav{order:3;width:100%;overflow-x:auto;justify-content:flex-start;padding:2px 0}.tower-site-nav a{white-space:nowrap;font-size:10px;padding:7px 9px}.tower-identity{min-width:0}.tower-identity b{font-size:14px}.tower-login-link{font-size:10px;padding:7px 10px}.tower-site-footer .container{align-items:flex-start;flex-direction:column}}
