@@ -586,6 +586,21 @@ body.modal-open{overflow:hidden}
  .nav-more-menu{min-width:0;max-width:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding:8px}
  .nav-more-menu a{white-space:normal;font-size:10px;padding:5px 6px}
 }
+
+/* تثبیت رفتار زیرمنوها پس از یکپارچه‌سازی استایل‌های قدیمی */
+#portalNav{overflow:visible!important}
+#portalNav .tab-nav-inner{overflow:visible;position:relative}
+#portalNav .nav-more{position:relative;z-index:2}
+#portalNav .nav-more[open]{z-index:20}
+#portalNav .nav-more:not([open])>.nav-more-menu{display:none!important}
+#portalNav .nav-more[open]>.nav-more-menu{display:grid!important}
+#portalNav .nav-more-menu{position:absolute;top:calc(100% + 5px);right:0;left:auto;z-index:100;max-height:min(70vh,520px);overflow-y:auto;background:var(--white)}
+@media(max-width:760px){
+ #portalNav{overflow:visible!important;max-height:calc(100vh - 64px);overflow-y:auto!important}
+ #portalNav .tab-nav-inner{overflow:visible}
+ #portalNav .nav-more-menu{position:static;max-height:none;overflow:visible;margin-top:5px}
+ #portalNav .nav-more[open]>.nav-more-menu{display:grid!important}
+}
 </style>
   <link rel="stylesheet" href="../assets/css/negin-expansion.css?v=1">
 <link rel="stylesheet" href="../assets/css/negin-member-extras.css?v=2">
