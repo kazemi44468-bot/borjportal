@@ -1,0 +1,13 @@
+name = "borjportal-api"
+main = "src/index.js"
+compatibility_date = "2026-10-30"
+workers_dev = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "borjportal-core"
+database_id = "REPLACE_WITH_CLOUDFLARE_D1_DATABASE_ID"
+migrations_dir = "migrations"
+
+[vars]
+APP_ORIGIN = "https://kazemi44468-bot.github.io"
