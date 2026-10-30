@@ -35,6 +35,7 @@ jobs:
           db = sqlite3.connect(':memory:')
           db.executescript(Path('backend/worker/migrations/0001_core.sql').read_text())
           db.executescript(Path('backend/worker/migrations/0002_operations.sql').read_text())
+db.executescript(Path('backend/worker/migrations/0003_advanced_operations.sql').read_text())
           violations = db.execute('PRAGMA foreign_key_check').fetchall()
           if violations:
               raise SystemExit(f'Foreign key violations: {violations}')
