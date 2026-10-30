@@ -1,0 +1,47 @@
+name: Import reusable Pexels property photos
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/import-property-photos.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  download-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download licensed photos into local assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets/images
+          curl -fL --retry 3 "https://images.pexels.com/photos/31656143/pexels-photo-31656143.jpeg?auto=compress&cs=tinysrgb&w=1800" -o assets/images/residential-facade-detail.jpg
+          curl -fL --retry 3 "https://images.pexels.com/photos/20192218/pexels-photo-20192218.jpeg?auto=compress&cs=tinysrgb&w=1800" -o assets/images/rooftop-pool.jpg
+          curl -fL --retry 3 "https://images.pexels.com/photos/12407009/pexels-photo-12407009.jpeg?auto=compress&cs=tinysrgb&w=1800" -o assets/images/elevator-lobby.jpg
+          curl -fL --retry 3 "https://images.pexels.com/photos/6188387/pexels-photo-6188387.jpeg?auto=compress&cs=tinysrgb&w=1800" -o assets/images/underground-parking.jpg
+          curl -fL --retry 3 "https://images.pexels.com/photos/5463575/pexels-photo-5463575.jpeg?auto=compress&cs=tinysrgb&w=1800" -o assets/images/building-maintenance.jpg
+          curl -fL --retry 3 "https://images.pexels.com/photos/30692441/pexels-photo-30692441.jpeg?auto=compress&cs=tinysrgb&w=1800" -o assets/images/security-control-room.jpg
+          curl -fL --retry 3 "https://images.pexels.com/photos/27195989/pexels-photo-27195989.jpeg?auto=compress&cs=tinysrgb&w=1800" -o assets/images/residential-gym.jpg
+          curl -fL --retry 3 "https://images.pexels.com/photos/34823913/pexels-photo-34823913.jpeg?auto=compress&cs=tinysrgb&w=1800" -o assets/images/office-reception.jpg
+          curl -fL --retry 3 "https://images.pexels.com/photos/18200648/pexels-photo-18200648.jpeg?auto=compress&cs=tinysrgb&w=1800" -o assets/images/garden-walkway.jpg
+          curl -fL --retry 3 "https://images.pexels.com/photos/20101490/pexels-photo-20101490.jpeg?auto=compress&cs=tinysrgb&w=1800" -o assets/images/management-meeting-room.jpg
+          for f in assets/images/{residential-facade-detail,rooftop-pool,elevator-lobby,underground-parking,building-maintenance,security-control-room,residential-gym,office-reception,garden-walkway,management-meeting-room}.jpg; do
+            test -s "$f"
+            file "$f" | grep -E 'JPEG image data|JFIF'
+          done
+
+      - name: Commit local photo library
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/images/*.jpg
+          git commit -m "Expand reusable local property photo library"
+          git push
