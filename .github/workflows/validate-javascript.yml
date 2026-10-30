@@ -27,3 +27,17 @@ jobs:
           if (!scripts.length) throw new Error('No inline scripts found in resident portal');
           console.log(`Validated ${scripts.length} inline script(s) in resident portal.`);
           NODE
+      - name: Validate Cloudflare D1 migrations
+        run: |
+          python3 - <<'PY'
+          import sqlite3
+          from pathlib import Path
+          db = sqlite3.connect(':memory:')
+          db.executescript(Path('backend/worker/migrations/0001_core.sql').read_text())
+          db.executescript(Path('backend/worker/migrations/0002_operations.sql').read_text())
+          violations = db.execute('PRAGMA foreign_key_check').fetchall()
+          if violations:
+              raise SystemExit(f'Foreign key violations: {violations}')
+          tables = db.execute("SELECT count(*) FROM sqlite_master WHERE type='table'").fetchone()[0]
+          print(f'Validated D1 migrations and {tables} tables.')
+          PY
