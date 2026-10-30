@@ -100,6 +100,7 @@ document.querySelectorAll('.filter-chip').forEach(btn=>btn.addEventListener('cli
 productSearch?.addEventListener('input',filterProducts);
 
 
+const managerRole=new URLSearchParams(location.search).get('role');if(managerRole==='board'){const boardSections=new Set(['overview','finance','requests']);document.querySelectorAll('.negin-tab').forEach(tab=>{tab.hidden=!boardSections.has(tab.dataset.panel)});const boardHeading=document.querySelector('[data-content="overview"] .panel-heading h3');if(boardHeading)boardHeading.textContent='نمای کلی و گزارش هیئت‌مدیره';}
 const neginTabs=document.querySelectorAll('.negin-tab');
 neginTabs.forEach(tab=>tab.addEventListener('click',()=>{const target=tab.dataset.panel;neginTabs.forEach(t=>t.classList.toggle('active',t===tab));document.querySelectorAll('.negin-panel').forEach(panel=>{const active=panel.dataset.content===target;panel.hidden=!active;panel.classList.toggle('active',active)})}));
 function addNeginDemoRecord(containerId,title,detail,status){const list=document.getElementById(containerId);if(!list)return;const row=document.createElement('div'),copy=document.createElement('span'),b=document.createElement('b'),small=document.createElement('small'),em=document.createElement('em');b.textContent=title;small.textContent=detail;em.textContent=status;copy.append(b,small);row.append(copy,em);list.prepend(row)}
