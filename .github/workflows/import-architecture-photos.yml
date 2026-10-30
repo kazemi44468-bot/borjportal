@@ -1,0 +1,39 @@
+name: Import licensed architecture photos
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/import-architecture-photos.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  download-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download selected free-use photos
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets/images
+          curl -fL --retry 3 --retry-delay 2 "https://images.pexels.com/photos/31656168/pexels-photo-31656168.jpeg?auto=compress&cs=tinysrgb&w=2000" -o assets/images/residential-courtyard.jpg
+          curl -fL --retry 3 --retry-delay 2 "https://images.pexels.com/photos/36355688/pexels-photo-36355688.jpeg?auto=compress&cs=tinysrgb&w=2000" -o assets/images/residential-exterior.jpg
+          curl -fL --retry 3 --retry-delay 2 "https://images.pexels.com/photos/5751698/pexels-photo-5751698.jpeg?auto=compress&cs=tinysrgb&w=2000" -o assets/images/residential-lobby.jpg
+          curl -fL --retry 3 --retry-delay 2 "https://images.pexels.com/photos/17411447/pexels-photo-17411447.jpeg?auto=compress&cs=tinysrgb&w=2000" -o assets/images/apartment-balconies.jpg
+          file assets/images/*.jpg
+          test "$(find assets/images -maxdepth 1 -name '*.jpg' | wc -l)" -ge 4
+
+      - name: Commit images into the repository
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/images/*.jpg
+          git commit -m "Add local residential architecture photos"
+          git push
