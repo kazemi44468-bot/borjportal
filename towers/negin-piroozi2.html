@@ -652,8 +652,8 @@ body.modal-open{overflow:hidden}
     <div class="member-overview">
       <div class="member-overview-head"><div><h3>نمای کلی فعالیت واحد</h3><p>خلاصه‌ای از درخواست‌ها، رزروها و مشارکت شما در ساختمان</p></div><span>آمار نمونه</span></div>
       <div class="member-stats">
-        <article><small>درخواست‌های ثبت‌شده این ماه</small><strong>۴</strong><span>۲ انجام‌شده · ۲ در جریان</span></article>
-        <article><small>خدمات دریافت‌شده</small><strong>۸</strong><span>از ابتدای دوره نمونه</span></article>
+        <article><small>درخواست‌های ثبت‌شده</small><strong id="memberRequestMetric">۰</strong><span>همه درخواست‌های قابل مشاهده</span></article>
+        <article><small>درخواست‌های انجام‌شده</small><strong id="memberDoneMetric">۰</strong><span>موارد تکمیل‌شده در پرونده واحد</span></article>
         <article><small>رزروهای ثبت‌شده در این مرورگر</small><strong id="memberBookingMetric">۰</strong><span>قابل مشاهده در بخش رزروهای من</span></article>
       </div>
       <div class="member-activity">
@@ -1336,6 +1336,9 @@ body.modal-open{overflow:hidden}
     const items=readBookings();
     bookingCount.textContent=items.length.toLocaleString('fa-IR')+' مورد';
     const metric=$('#memberBookingMetric');if(metric)metric.textContent=items.length.toLocaleString('fa-IR');
+    const requests=$('#reqList .req');
+    const requestMetric=$('#memberRequestMetric');if(requestMetric)requestMetric.textContent=requests.length.toLocaleString('fa-IR');
+    const doneMetric=$('#memberDoneMetric');if(doneMetric)doneMetric.textContent=requests.filter(item=>item.dataset.status==='done').length.toLocaleString('fa-IR');
     bookingList.innerHTML=items.length?items.slice().reverse().map(item=>'<div class="booking-item"><div><strong>'+escapeBookingText(item.service)+'</strong><small>'+escapeBookingText(item.date)+' · '+escapeBookingText(item.time)+(item.details?' · '+escapeBookingText(item.details):'')+'</small></div><em>ثبت محلی · در انتظار هماهنگی</em></div>').join(''):'<div class="booking-empty">هنوز رزروی در این فهرست ثبت نشده است.</div>';
   }
   function escapeBookingText(value){return String(value||'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));}
