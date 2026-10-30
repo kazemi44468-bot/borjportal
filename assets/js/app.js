@@ -57,6 +57,6 @@ const textWalker=document.createTreeWalker(document.getElementById('app'),NodeFi
 let textNode;while((textNode=textWalker.nextNode()))textNode.nodeValue=textNode.nodeValue.replace(/[0-9]/g,d=>digitMap[d]);
 const toggle=document.getElementById('menuToggle'),nav=document.getElementById('mainNav');toggle?.addEventListener('click',()=>nav.classList.toggle('open'));
 const topBtn=document.getElementById('backTop');window.addEventListener('scroll',()=>topBtn.classList.toggle('show',window.scrollY>350));topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-const search=document.getElementById('moduleSearch');search?.addEventListener('input',()=>{const q=search.value.trim().toLowerCase();document.querySelectorAll('#serviceGroups .module-card').forEach(el=>el.style.display=el.innerText.toLowerCase().includes(q)?'flex':'none')});
+const search=document.getElementById('moduleSearch');search?.addEventListener('input',()=>{const q=search.value.trim().toLowerCase();let visible=0;document.querySelectorAll('#serviceGroups .module-card').forEach(el=>{const match=el.innerText.toLowerCase().includes(q);el.style.display=match?'flex':'none';if(match)visible++});const empty=document.getElementById('serviceEmpty');if(empty)empty.hidden=visible>0});
 document.getElementById('contactForm')?.addEventListener('submit',e=>e.preventDefault());
 })();
