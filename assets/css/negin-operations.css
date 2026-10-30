@@ -61,3 +61,14 @@ body[data-page="negin"] .op-entry-bar{display:flex;align-items:center;justify-co
 body[data-page="negin"] .op-entry-bar b,.op-entry-bar small{display:block}.op-entry-bar b{color:#3f604e;font-size:11px}.op-entry-bar small{margin-top:2px;color:#859186;font-size:9px}
 body[data-page="negin"] .op-entry-bar.is-open{border-color:#c7d6c6}
 @media(max-width:560px){body[data-page="negin"] .op-entry-bar{align-items:flex-start;flex-direction:column}.op-entry-bar .op-btn{width:100%}}
+
+/* Integrated finance and audit views */
+body[data-page="negin"] .op-finance-summary{margin:12px 0;padding:13px;border:1px solid #e1e9df;border-radius:12px;background:#fbfcf8}
+body[data-page="negin"] .op-finance-summary h5{margin:14px 0 8px;color:#355b4d;font-size:11px}
+body[data-page="negin"] .op-finance-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:7px}
+body[data-page="negin"] .op-finance-kpis article{padding:9px;border:1px solid #e5ebe2;border-radius:9px;background:#fff}
+body[data-page="negin"] .op-finance-kpis small,body[data-page="negin"] .op-finance-kpis b{display:block}
+body[data-page="negin"] .op-finance-kpis small{font-size:9px;color:#7d8a80}
+body[data-page="negin"] .op-finance-kpis b{margin-top:4px;font-size:12px;color:#315f50;overflow-wrap:anywhere}
+body[data-page="negin"] [data-edit]{min-height:28px;padding:4px 8px;font-size:9px}
+@media(max-width:700px){body[data-page="negin"] .op-finance-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
