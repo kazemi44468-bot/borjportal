@@ -537,3 +537,16 @@ body[data-page="negin"] .negin-widget p{font-size:10px;line-height:2;color:#7b89
  body[data-page="negin"] .negin-alert-row span{text-align:right}
  body[data-page="negin"] .negin-widget-title{align-items:flex-start;flex-direction:column}
 }
+
+/* Dense sample datasets for Negin tower dashboard */
+.negin-sample-note{margin:10px 0;padding:9px 12px;border:1px dashed #d8d0b9;border-radius:9px;background:#fbfaf5;color:#8b7955;font-size:10px;line-height:1.9}
+.negin-sample-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:12px 0}
+.negin-sample-kpis article{min-width:0;padding:12px;border:1px solid #e7ebe3;border-radius:11px;background:linear-gradient(145deg,#fff,#f7f9f4)}
+.negin-sample-kpis small,.negin-sample-kpis span{display:block;color:#839087;font-size:9px;line-height:1.8}
+.negin-sample-kpis b{display:block;margin:4px 0;color:#426451;font-size:19px;font-weight:800;direction:rtl;overflow-wrap:anywhere}
+.negin-sample-kpis span{color:#a18b5d}
+.negin-panel .negin-widget{margin-top:11px}
+.negin-panel .negin-widget-title{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.negin-panel .negin-data-table td,.negin-panel .negin-data-table th{vertical-align:middle}
+.negin-panel .negin-record-list>div{min-height:48px}
+@media(max-width:760px){.negin-sample-kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.negin-sample-kpis article{padding:9px}.negin-sample-kpis b{font-size:16px}.negin-sample-note{font-size:9px}.negin-panel .negin-widget-title{align-items:flex-start;flex-direction:column}}
