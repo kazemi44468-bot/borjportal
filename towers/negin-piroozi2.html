@@ -534,6 +534,20 @@ body.modal-open{overflow:hidden}
 .booking-modal .form-row{grid-template-columns:1fr}
 }
 
+
+.member-overview{margin-top:15px;padding:16px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(115deg,var(--white),var(--paper))}
+.member-overview-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.member-overview-head h3{margin:0;color:var(--green-deep);font-size:13px}.member-overview-head p{margin:3px 0 0;color:var(--muted);font-size:10.5px}
+.member-overview-head>span{padding:4px 9px;border-radius:20px;background:var(--paper-2);color:var(--muted);font-size:9px;white-space:nowrap}
+.member-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.member-stats article{padding:12px;border:1px solid var(--line);border-radius:11px;background:var(--white)}
+.member-stats small,.member-stats span{display:block;color:var(--muted);font-size:10px}.member-stats strong{display:block;margin:5px 0;color:var(--green-deep);font-size:22px;line-height:1.3;font-weight:800}.member-stats span{font-size:9px}
+.member-activity{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:10px}
+.member-activity>div{display:flex;align-items:flex-start;gap:8px;padding:9px;border-radius:10px;background:var(--white);border:1px solid var(--line)}
+.member-activity p{margin:0}.member-activity b,.member-activity small{display:block}.member-activity b{font-size:10px;color:var(--ink)}.member-activity small{margin-top:3px;font-size:9px;color:var(--muted)}
+.activity-dot{width:8px;height:8px;flex:0 0 8px;margin-top:4px;border-radius:50%;background:var(--ok)}.activity-dot.pending{background:var(--warn)}.activity-dot.planned{background:var(--info)}
+@media(max-width:760px){.member-stats{grid-template-columns:1fr 1fr}.member-activity{grid-template-columns:1fr}.member-overview{padding:12px}}
+
 </style>
 </head>
 <body>
@@ -633,6 +647,19 @@ body.modal-open{overflow:hidden}
         <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> رزرو فعال</div>
         <div class="value">۱</div>
         <div class="meta">سالن اجتماعات · پنجشنبه ۱۸ آذر</div>
+      </div>
+    </div>
+    <div class="member-overview">
+      <div class="member-overview-head"><div><h3>نمای کلی فعالیت واحد</h3><p>خلاصه‌ای از درخواست‌ها، رزروها و مشارکت شما در ساختمان</p></div><span>آمار نمونه</span></div>
+      <div class="member-stats">
+        <article><small>درخواست‌های ثبت‌شده این ماه</small><strong>۴</strong><span>۲ انجام‌شده · ۲ در جریان</span></article>
+        <article><small>خدمات دریافت‌شده</small><strong>۸</strong><span>از ابتدای دوره نمونه</span></article>
+        <article><small>رزروهای ثبت‌شده در این مرورگر</small><strong id="memberBookingMetric">۰</strong><span>قابل مشاهده در بخش رزروهای من</span></article>
+      </div>
+      <div class="member-activity">
+        <div><span class="activity-dot done"></span><p><b>سرویس دوره‌ای فن‌کویل</b><small>انجام‌شده · ۱۵ آبان</small></p></div>
+        <div><span class="activity-dot pending"></span><p><b>نشتی شیر آب آشپزخانه</b><small>در حال بررسی · ۲ آذر</small></p></div>
+        <div><span class="activity-dot planned"></span><p><b>رزرو سالن اجتماعات</b><small>برنامه‌ریزی‌شده · ۱۸ آذر</small></p></div>
       </div>
     </div>
   </section>
@@ -1264,7 +1291,7 @@ body.modal-open{overflow:hidden}
     });
     $$('a',nav).forEach(link=>link.addEventListener('click',()=>{
       nav.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');
-      const details=$('.nav-more',nav);if(details)details.open=false;
+      $('.nav-more',nav).forEach(details=>details.open=false);
     }));
   }
   const theme=$('#themeToggle'),darkSwitch=$('#darkModeSwitch');
@@ -1308,6 +1335,7 @@ body.modal-open{overflow:hidden}
     if(!bookingList||!bookingCount)return;
     const items=readBookings();
     bookingCount.textContent=items.length.toLocaleString('fa-IR')+' مورد';
+    const metric=$('#memberBookingMetric');if(metric)metric.textContent=items.length.toLocaleString('fa-IR');
     bookingList.innerHTML=items.length?items.slice().reverse().map(item=>'<div class="booking-item"><div><strong>'+escapeBookingText(item.service)+'</strong><small>'+escapeBookingText(item.date)+' · '+escapeBookingText(item.time)+(item.details?' · '+escapeBookingText(item.details):'')+'</small></div><em>ثبت محلی · در انتظار هماهنگی</em></div>').join(''):'<div class="booking-empty">هنوز رزروی در این فهرست ثبت نشده است.</div>';
   }
   function escapeBookingText(value){return String(value||'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));}
