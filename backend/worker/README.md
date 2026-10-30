@@ -31,3 +31,7 @@ PBKDF2-SHA-256 password hashes with random per-user salts; opaque random session
 Email verification, password reset and mail delivery; rate limiting or Turnstile; expanded unit-level authorization for each financial/document/guest endpoint; integration tests, monitoring, backups and retention policy. Invitation tokens must be delivered through a trusted channel until email is connected.
 
 This repository scaffold is not a live backend until D1 is provisioned, the Worker secret is set, and the Worker is deployed.
+
+
+## Expanded tower operations
+Apply migrations/0002_operations.sql after the core migration. The operational data model and proposed REST contract are documented in docs/NEGIN-OPERATIONS-API.md. The static Negin management workspace currently uses browser-local storage and is not connected to this Worker or D1.
