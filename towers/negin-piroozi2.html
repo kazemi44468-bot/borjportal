@@ -440,9 +440,54 @@ body.modal-open{overflow:hidden}
   .summary{grid-template-columns:1fr}
 }
 
-\n.resident-switchbar{min-height:38px;padding:6px max(18px,calc((100% - 1180px)/2));display:flex;align-items:center;gap:18px;background:#123f3c;color:#e9eee8;font:11px/1.6 'Vazirmatn',Tahoma,sans-serif}.resident-switchbar a{color:#e7d2a5;text-decoration:none}.resident-switchbar a:hover{color:#fff}.resident-switchbar span{margin-inline-start:auto;color:#fff;font-weight:700}@media(max-width:600px){.resident-switchbar{gap:10px;font-size:9px;padding:7px 12px;flex-wrap:wrap}.resident-switchbar span{order:-1;width:100%;margin:0}}\n</style>
+\n.resident-switchbar{min-height:38px;padding:6px max(18px,calc((100% - 1180px)/2));display:flex;align-items:center;gap:18px;background:#123f3c;color:#e9eee8;font:11px/1.6 'Vazirmatn',Tahoma,sans-serif}.resident-switchbar a{color:#e7d2a5;text-decoration:none}.resident-switchbar a:hover{color:#fff}.resident-switchbar span{margin-inline-start:auto;color:#fff;font-weight:700}@media(max-width:600px){.resident-switchbar{gap:10px;font-size:9px;padding:7px 12px;flex-wrap:wrap}.resident-switchbar span{order:-1;width:100%;margin:0}}
+
+/* منوی ظریف، دسته‌بندی‌شده و کم‌ارتفاع */
+.resident-switchbar{width:min(1180px,calc(100% - 32px));min-height:30px;margin:7px auto 5px;padding:4px 11px;gap:12px;border:1px solid #d9e4dc;border-radius:9px;background:#f9fbf8;color:#53665d;font-size:10px;box-shadow:0 2px 8px rgba(20,63,58,.04)}
+.resident-switchbar a{color:#426b60;padding:2px 5px;border-radius:5px}.resident-switchbar a:hover{background:#eaf1eb;color:#174943}
+.resident-switchbar span{color:#174943;font-size:10px}
+.tab-nav{top:var(--header-h);background:transparent;border:0;box-shadow:none;overflow:visible;padding:5px 0 7px}
+.tab-nav-inner{width:min(1180px,calc(100% - 32px));padding:5px 7px;gap:5px;flex-wrap:wrap;white-space:normal;background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:12px;box-shadow:0 4px 16px rgba(23,63,60,.055)}
+.tab-nav-inner>a{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid transparent;border-radius:8px;font-size:11px;line-height:1.5}
+.tab-nav-inner>a::before{content:attr(data-icon);display:inline-grid;place-items:center;width:18px;height:18px;border-radius:6px;background:var(--paper-2);color:var(--green);font-size:12px}
+.tab-nav-inner>a:hover,.tab-nav-inner>a.active{background:var(--paper-2);border-color:#dce7df;color:var(--green-deep)}
+.nav-more summary{display:flex;align-items:center;gap:7px;padding:6px 10px;border:1px solid transparent;border-radius:8px;font-size:11px}
+.nav-summary-icon{width:18px;height:18px;display:grid;place-items:center;border-radius:6px;background:var(--paper-2);color:var(--green)}
+.nav-chevron{font-size:13px;transition:transform .18s}.nav-more[open] .nav-chevron{transform:rotate(180deg)}
+.nav-more-menu{min-width:460px;max-width:min(680px,90vw);grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:12px}
+.nav-menu-group{display:grid;align-content:start;gap:3px}.nav-menu-group>b{padding:5px 9px 7px;color:var(--gold);font-size:10px;border-bottom:1px solid var(--line);margin-bottom:3px}
+.nav-more-menu a{display:flex;align-items:center;gap:8px;padding:7px 9px;font-size:11px}
+.nav-more-menu a span{width:19px;height:19px;display:grid;place-items:center;border-radius:6px;background:var(--paper-2);color:var(--green);font-size:11px;flex:0 0 19px}
+.nav-more-menu a[hidden],.tab-nav a[hidden]{display:none!important}
+.service-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.service-tile{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;align-items:flex-start;min-height:205px}
+.service-tile-icon{width:36px;height:36px;display:grid;place-items:center;border-radius:10px;background:var(--paper-2);color:var(--green);font-size:19px}
+.service-tile h3{font-size:14px;margin:11px 0 5px;color:var(--green-deep)}
+.service-tile p{font-size:11.5px;color:var(--muted);margin:0 0 14px;flex:1}
+.media-feature{display:grid;grid-template-columns:.8fr 1.2fr;gap:18px;padding:18px;background:var(--white);border:1px solid var(--line);border-radius:16px}
+.media-screen{min-height:210px;border-radius:12px;background:radial-gradient(circle at 50% 35%,#2a7068,#103632 72%);display:flex;align-items:center;justify-content:center;flex-direction:column;color:#fff;gap:8px;text-align:center;padding:20px}
+.media-play{width:48px;height:48px;display:grid;place-items:center;border-radius:50%;background:#ffffff20;border:1px solid #ffffff60;font-size:23px}
+.media-screen b{font-size:15px}.media-screen small{font-size:10px;color:#d8e7df}
+.media-copy h3{margin:5px 0 8px;font-size:16px;color:var(--green-deep)}.media-copy p{font-size:12px;color:var(--muted)}
+.media-tags{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}.media-tags span{padding:4px 8px;border-radius:20px;background:var(--paper-2);color:var(--green-deep);font-size:10px}
+.back-to-top{position:fixed;left:22px;bottom:22px;z-index:90;width:42px;height:42px;border:1px solid #cbd9d0;border-radius:12px;background:var(--white);color:var(--green);box-shadow:var(--shadow-md);display:grid;place-items:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:.2s}
+.back-to-top.visible{opacity:1;visibility:visible;transform:translateY(0)}.back-to-top svg{width:18px;height:18px}
+@media(max-width:980px){.nav-more-menu{min-width:400px}.service-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){
+.resident-switchbar{width:calc(100% - 24px);margin:6px auto 4px;gap:7px;padding:4px 8px;min-height:28px}
+.resident-switchbar span{order:0;width:auto;margin-inline-start:auto}
+.tab-nav{top:var(--header-h);padding:4px 0}
+.tab-nav-inner{width:calc(100% - 24px);padding:7px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
+.tab-nav-inner>a{justify-content:flex-start;padding:7px 8px;font-size:10.5px}
+.nav-more{grid-column:1/-1}.nav-more summary{border:1px solid var(--line);background:var(--paper);padding:8px 10px}
+.nav-more-menu{position:static;min-width:0;max-width:none;margin-top:5px;grid-template-columns:repeat(2,minmax(0,1fr));box-shadow:none}
+.service-tiles{grid-template-columns:1fr}.media-feature{grid-template-columns:1fr}.media-screen{min-height:160px}
+.back-to-top{left:13px;bottom:14px;width:38px;height:38px}
+}
+</style>
 </head>
-<body>\n<div class="resident-switchbar"><a href="negin-piroozi-intro.html">⌂ معرفی برج</a><span id="memberRoleLabel">پورتال ساکنان</span><a href="negin-piroozi.html">پنل مدیریت</a><a href="negin-piroozi-app.html">نسخه موبایل</a></div>
+<body>
+<div class="resident-switchbar"><a href="negin-piroozi-intro.html">⌂ معرفی برج</a><span id="memberRoleLabel">پورتال ساکنان</span><a href="negin-piroozi.html">پنل مدیریت</a><a href="negin-piroozi-app.html">نسخه موبایل</a></div>
 <a href="#dashboard" class="skip-link">پرش به محتوا</a>
 
 <!-- هدر -->
@@ -477,33 +522,25 @@ body.modal-open{overflow:hidden}
   </div>
 </header>
 
-<!-- منوی اصلی و دسته‌بندی‌شده -->
+<!-- منوی دسته‌بندی‌شده -->
 <nav class="tab-nav" id="portalNav" aria-label="منوی بخش‌های پورتال">
-  <div class="tab-nav-inner">
-    <a href="#dashboard" class="active">داشبورد</a>
-    <a href="#charge">مالی و پرداخت</a>
-    <a href="#requests">درخواست خدمات</a>
-    <a href="#facilities">امکانات و رزرو</a>
-    <a href="#guests">ورود و مهمان</a>
-    <a href="#energy">انرژی و تأسیسات</a>
-    <a href="#support">پشتیبانی</a>
-    <details class="nav-more">
-      <summary>سایر بخش‌ها <span aria-hidden="true">⌄</span></summary>
-      <div class="nav-more-menu">
-        <a href="#payments">سوابق پرداخت و رسیدها</a>
-        <a href="#notices">اطلاعیه‌های ساختمان</a>
-        <a href="#parcels">مرسولات</a>
-        <a href="#docs">قراردادها و اسناد</a>
-        <a href="#neighbors">همسایگان و تماس اضطراری</a>
-        <a href="#polls">نظرسنجی و مشارکت</a>
-        <a href="#settings">تنظیمات و حریم خصوصی</a>
-        <a href="#quick">خدمات سریع</a>
-        <a href="#profile">پرونده واحد</a>
-        <a href="#contact">ارتباط با مدیریت</a>
-      </div>
-    </details>
-  </div>
-</nav>
+<div class="tab-nav-inner">
+<a href="#dashboard" class="active" data-icon="⌂">داشبورد</a>
+<a href="#charge" data-icon="▤">مالی و پرداخت</a>
+<a href="#requests" data-icon="＋">درخواست‌ها</a>
+<details class="nav-more"><summary><span class="nav-summary-icon">▦</span> خدمات و سفارش‌ها <span class="nav-chevron">⌄</span></summary>
+<div class="nav-more-menu">
+<div class="nav-menu-group"><b>خرید و سفارش روزمره</b><a href="#market"><span>▣</span> مرکز خرید و سوپرمارکت</a><a href="#food"><span>◉</span> سفارش غذا و رستوران</a><a href="#delivery"><span>⇢</span> پیک، سرویس و باربری</a></div>
+<div class="nav-menu-group"><b>خدمات منزل و ساختمان</b><a href="#technical"><span>⚙</span> خدمات فنی و تعمیرات</a><a href="#homecare"><span>⌂</span> نظافت و خدمات منزل</a><a href="#consulting"><span>✧</span> مشاوره و نگهداری</a></div>
+<div class="nav-menu-group"><b>رسانه و رفاه</b><a href="#media"><span>▷</span> شبکه فیلم و رسانه هوشمند</a><a href="#facilities"><span>♧</span> امکانات و رزرو</a></div>
+</div></details>
+<a href="#guests" data-icon="♙">ورود و مهمان</a><a href="#energy" data-icon="ϟ">انرژی و تأسیسات</a><a href="#support" data-icon="?">پشتیبانی</a>
+<details class="nav-more nav-secondary"><summary><span class="nav-summary-icon">⋯</span> پرونده و سایر بخش‌ها <span class="nav-chevron">⌄</span></summary>
+<div class="nav-more-menu">
+<div class="nav-menu-group"><b>امور واحد و ساختمان</b><a href="#payments"><span>▧</span> سوابق پرداخت و رسیدها</a><a href="#notices"><span>▤</span> اطلاعیه‌های ساختمان</a><a href="#parcels"><span>▱</span> مرسولات</a><a href="#docs"><span>▣</span> قراردادها و اسناد</a><a href="#profile"><span>♙</span> پرونده واحد و اعضا</a></div>
+<div class="nav-menu-group"><b>ارتباط و مشارکت</b><a href="#neighbors"><span>♧</span> همسایگان و تماس اضطراری</a><a href="#polls"><span>☷</span> نظرسنجی و مشارکت</a><a href="#contact"><span>✉</span> ارتباط با مدیریت</a><a href="#settings"><span>⚙</span> تنظیمات و حریم خصوصی</a><a href="#quick"><span>✦</span> خدمات سریع</a></div>
+</div></details>
+</div></nav>
 
 <main class="main">
 <div class="container">
@@ -1038,6 +1075,34 @@ body.modal-open{overflow:hidden}
     </div>
   </section>
 </div>
+
+<section class="portal-section" id="market"><div class="section-title"><h2>مرکز خرید و سوپرمارکت</h2><span class="hint">خرید اقلام روزمره و تحویل در برج</span></div><div class="service-tiles">
+<article class="service-tile"><span class="service-tile-icon">▣</span><h3>سوپرمارکت آنلاین</h3><p>سفارش کالاهای روزانه، لبنیات، نان، میوه، شوینده و اقلام خانه از فروشگاه‌های طرف قرارداد.</p><button class="btn btn-outline btn-sm" onclick="showToast('فهرست فروشگاه‌ها در نسخه نمایشی است')">مشاهده فروشگاه‌ها</button></article>
+<article class="service-tile"><span class="service-tile-icon">▤</span><h3>فروشگاه‌های محلی</h3><p>دسترسی به فروشگاه‌های اطراف، ثبت سفارش و انتخاب بازه تحویل به واحد یا لابی.</p><button class="btn btn-outline btn-sm" onclick="showToast('اتصال فروشگاه‌های محلی در مرحله راه‌اندازی است')">فروشگاه‌های اطراف</button></article>
+<article class="service-tile"><span class="service-tile-icon">▧</span><h3>خرید گروهی ساختمان</h3><p>خریدهای دوره‌ای و گروهی برای هماهنگی تحویل سفارش‌ها و صرفه‌جویی در زمان.</p><button class="btn btn-outline btn-sm" onclick="showToast('ثبت سفارش گروهی در نسخه نمایشی است')">سفارش گروهی</button></article></div></section>
+<section class="portal-section" id="food"><div class="section-title"><h2>غذا، رستوران و پذیرایی</h2><span class="hint">سفارش غذا و خدمات پذیرایی</span></div><div class="service-tiles">
+<article class="service-tile"><span class="service-tile-icon">◉</span><h3>سفارش غذا</h3><p>انتخاب رستوران، مشاهده منو، ثبت سفارش و دریافت غذا در ورودی یا واحد.</p><button class="btn btn-outline btn-sm" onclick="showToast('اتصال رستوران‌ها هنوز فعال نشده است')">مشاهده منوها</button></article>
+<article class="service-tile"><span class="service-tile-icon">♨</span><h3>غذای روزانه</h3><p>سفارش وعده‌های روزانه، غذای خانگی و برنامه غذایی هفتگی.</p><button class="btn btn-outline btn-sm" onclick="showToast('سفارش غذای روزانه در نسخه نمایشی است')">سفارش روزانه</button></article>
+<article class="service-tile"><span class="service-tile-icon">♧</span><h3>پذیرایی و مراسم</h3><p>درخواست پذیرایی و هماهنگی خدمات برای مهمانی و مراسم.</p><button class="btn btn-outline btn-sm" onclick="showToast('درخواست پذیرایی در نسخه نمایشی است')">درخواست پذیرایی</button></article></div></section>
+<section class="portal-section" id="delivery"><div class="section-title"><h2>حمل‌ونقل، پیک و باربری</h2><span class="hint">خدمات ارسال و جابه‌جایی</span></div><div class="service-tiles">
+<article class="service-tile"><span class="service-tile-icon">⇢</span><h3>پیک و ارسال فوری</h3><p>درخواست پیک شهری، دریافت بسته از فروشگاه و ارسال مرسوله.</p><button class="btn btn-outline btn-sm" onclick="showToast('سرویس پیک در نسخه نمایشی است')">درخواست پیک</button></article>
+<article class="service-tile"><span class="service-tile-icon">↗</span><h3>سرویس رفت‌وآمد</h3><p>درخواست خودرو و سرویس حمل‌ونقل شهری از ارائه‌دهندگان متصل به سامانه.</p><button class="btn btn-outline btn-sm" onclick="showToast('اتصال سرویس حمل‌ونقل در حال برنامه‌ریزی است')">درخواست خودرو</button></article>
+<article class="service-tile"><span class="service-tile-icon">▰</span><h3>باربری و اسباب‌کشی</h3><p>هماهنگی وانت، کامیونت، بسته‌بندی، حمل اثاثیه و رزرو آسانسور باربری.</p><button class="btn btn-outline btn-sm" onclick="showToast('ثبت درخواست باربری در نسخه نمایشی است')">درخواست باربری</button></article></div></section>
+<section class="portal-section" id="technical"><div class="section-title"><h2>خدمات فنی و تعمیرات</h2><span class="hint">تعمیرکاران و متخصصان</span></div><div class="service-tiles">
+<article class="service-tile"><span class="service-tile-icon">⚙</span><h3>تعمیرات تأسیسات</h3><p>برق‌کاری، لوله‌کشی، پمپ، گرمایش و سرمایش، آسانسور و تجهیزات مشترک.</p><button class="btn btn-outline btn-sm" onclick="openModal('new-request-modal')">ثبت درخواست فنی</button></article>
+<article class="service-tile"><span class="service-tile-icon">⌂</span><h3>تعمیرات داخل واحد</h3><p>خدمات برق، آب، شیرآلات، در و پنجره، کابینت، رنگ و تعمیرات عمومی.</p><button class="btn btn-outline btn-sm" onclick="openModal('new-request-modal')">درخواست تعمیرکار</button></article>
+<article class="service-tile"><span class="service-tile-icon">▦</span><h3>نصب و راه‌اندازی</h3><p>نصب تجهیزات خانگی، شبکه، دوربین، آیفون و تجهیزات هوشمند.</p><button class="btn btn-outline btn-sm" onclick="showToast('درخواست نصب در نسخه نمایشی است')">درخواست نصب</button></article></div></section>
+<section class="portal-section" id="homecare"><div class="section-title"><h2>نظافت و خدمات منزل</h2><span class="hint">خدمات دوره‌ای و درخواستی</span></div><div class="service-tiles">
+<article class="service-tile"><span class="service-tile-icon">✧</span><h3>نظافت منزل</h3><p>نظافت دوره‌ای، نظافت پس از تعمیرات و شست‌وشوی تخصصی.</p><button class="btn btn-outline btn-sm" onclick="showToast('رزرو نظافت در نسخه نمایشی است')">رزرو نظافت</button></article>
+<article class="service-tile"><span class="service-tile-icon">▤</span><h3>خشکشویی و شست‌وشو</h3><p>دریافت و تحویل لباس، پرده، فرش و اقلام قابل شست‌وشو.</p><button class="btn btn-outline btn-sm" onclick="showToast('سرویس خشکشویی هنوز متصل نیست')">ثبت سفارش</button></article>
+<article class="service-tile"><span class="service-tile-icon">♧</span><h3>مراقبت و خدمات شخصی</h3><p>درخواست خدمات مراقبتی از ارائه‌دهندگان احراز‌شده و مورد تأیید.</p><button class="btn btn-outline btn-sm" onclick="showToast('درخواست خدمات شخصی در نسخه نمایشی است')">مشاهده خدمات</button></article></div></section>
+<section class="portal-section" id="consulting"><div class="section-title"><h2>مشاوره، نگهداری و خدمات تخصصی</h2><span class="hint">راهنمایی و برنامه‌ریزی برای واحد و ساختمان</span></div><div class="service-tiles">
+<article class="service-tile"><span class="service-tile-icon">✧</span><h3>مشاوره فنی و ساختمانی</h3><p>مشاوره تعمیر، بازسازی، بهینه‌سازی مصرف، ایمنی و انتخاب تجهیزات.</p><button class="btn btn-outline btn-sm" onclick="showToast('درخواست مشاوره در نسخه نمایشی است')">درخواست مشاوره</button></article>
+<article class="service-tile"><span class="service-tile-icon">▥</span><h3>برنامه نگهداری واحد</h3><p>یادآوری سرویس کولر، پکیج، فیلترها و بازبینی‌های دوره‌ای.</p><button class="btn btn-outline btn-sm" onclick="showToast('تقویم نگهداری در نسخه نمایشی است')">تقویم نگهداری</button></article>
+<article class="service-tile"><span class="service-tile-icon">▧</span><h3>مشاوره حقوقی و ملکی</h3><p>دریافت وقت مشاوره درباره قراردادها، اجاره و مسائل حقوقی مرتبط با ملک.</p><button class="btn btn-outline btn-sm" onclick="showToast('رزرو مشاوره در نسخه نمایشی است')">رزرو مشاوره</button></article></div></section>
+<section class="portal-section" id="media"><div class="section-title"><h2>رسانه و شبکه فیلم هوشمند ساختمان</h2><span class="hint">سرگرمی، اطلاع‌رسانی و محتوای چندرسانه‌ای</span></div><div class="media-feature">
+<div class="media-screen"><span class="media-play">▷</span><b>شبکه رسانه برج</b><small>فیلم، آموزش، برنامه‌های فرهنگی و اطلاعیه‌های تصویری</small></div>
+<div class="media-copy"><h3>یک تجربه رسانه‌ای مشترک برای ساکنان</h3><p>دسترسی به شبکه داخلی اطلاع‌رسانی، محتوای آموزشی و سرگرمی و کتابخانه فیلم با رعایت حقوق پخش و مجوزهای محتوا.</p><div class="media-tags"><span>شبکه داخلی ساختمان</span><span>کتابخانه محتوای مجاز</span><span>اعلان تصویری</span><span>راهنمای هوشمند</span></div><button class="btn btn-outline btn-sm" onclick="showToast('شبکه رسانه در مرحله طراحی و اتصال محتوا است')">ورود به مرکز رسانه</button></div></div></section>
 </main>
 
 <footer class="portal-footer">
@@ -1063,6 +1128,7 @@ body.modal-open{overflow:hidden}
     <form class="contact-form demo-form"><div class="form-group"><label>موضوع تیکت</label><input required placeholder="موضوع را وارد کنید"></div><div class="form-group"><label>شرح مسئله</label><textarea required placeholder="جزئیات مورد را بنویسید"></textarea></div><button class="btn btn-primary" type="submit">ثبت آزمایشی تیکت</button></form>
   </div>
 </div>
+<button class="back-to-top" id="backToTop" type="button" aria-label="بازگشت به بالای صفحه" title="بازگشت به بالا"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 14 6-6 6 6"/></svg></button>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
@@ -1082,6 +1148,8 @@ body.modal-open{overflow:hidden}
     $$('.poll-option',group).forEach(item=>item.classList.remove('selected'));
     button.classList.add('selected'); showToast('انتخاب شما در این پیش‌نمایش ثبت شد؛ رأی واقعی ارسال نشده است.');
   };
+  const backTop=$('#backToTop');
+  if(backTop){const updateBackTop=()=>backTop.classList.toggle('visible',window.scrollY>360);window.addEventListener('scroll',updateBackTop,{passive:true});updateBackTop();backTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));}
   const nav=$('#portalNav'),toggle=$('#navToggle');
   if(toggle&&nav){
     toggle.addEventListener('click',()=>{
@@ -1127,12 +1195,12 @@ body.modal-open{overflow:hidden}
   const memberRole=new URLSearchParams(location.search).get('role')==='owner'?'owner':'resident';
   const memberLabel=document.getElementById('memberRoleLabel');
   if(memberLabel)memberLabel.textContent=memberRole==='owner'?'پورتال مالک':'پورتال ساکنان';
-  const roleSections={owner:['dashboard','charge','payments','requests','notices','docs','profile','contact'],resident:['dashboard','requests','notices','facilities','guests','parcels','energy','neighbors','polls','support','settings','quick','contact']};
+  const roleSections={owner:['dashboard','charge','payments','requests','notices','docs','profile','contact','market','food','delivery','technical','homecare','consulting','media'],resident:['dashboard','requests','notices','facilities','guests','parcels','energy','neighbors','polls','support','settings','quick','contact','market','food','delivery','technical','homecare','consulting','media']};
   const allowedSections=new Set(roleSections[memberRole]);
   document.querySelectorAll('.portal-section[id]').forEach(section=>{section.hidden=!allowedSections.has(section.id)});
   document.querySelectorAll('#portalNav a[href^="#"]').forEach(link=>{const id=link.getAttribute('href').slice(1);link.hidden=!allowedSections.has(id)});
-  const moreMenu=document.querySelector('.nav-more-menu');
-  if(moreMenu){const more=document.querySelector('.nav-more');const visible=[...moreMenu.querySelectorAll('a')].some(link=>!link.hidden);if(more)more.hidden=!visible}
+  document.querySelectorAll('.nav-menu-group').forEach(group=>{group.hidden=!Array.from(group.querySelectorAll('a')).some(link=>!link.hidden)});
+  document.querySelectorAll('.nav-more').forEach(drop=>{drop.hidden=!Array.from(drop.querySelectorAll('.nav-more-menu a')).some(link=>!link.hidden)});
 })();
 </script>
 </body>
