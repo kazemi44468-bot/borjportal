@@ -587,6 +587,14 @@ body.modal-open{overflow:hidden}
  .nav-more-menu a{white-space:normal;font-size:10px;padding:5px 6px}
 }
 
+
+/* دسترسی سریع‌تر به بخش‌های پرتکرار در نوار اصلی */
+.tab-nav-inner{gap:2px}
+.tab-nav a{padding:10px 9px;font-size:11.5px}
+.nav-more summary{padding:9px 10px;font-size:11.5px}
+@media(max-width:980px){.tab-nav-inner{gap:3px}.tab-nav a{padding:10px 11px}}
+@media(max-width:760px){.tab-nav a{font-size:12px;padding:11px 12px}}
+
 /* تثبیت رفتار زیرمنوها پس از یکپارچه‌سازی استایل‌های قدیمی */
 #portalNav{overflow:visible!important}
 #portalNav .tab-nav-inner{overflow:visible;position:relative}
@@ -651,9 +659,13 @@ body.modal-open{overflow:hidden}
   <div class="tab-nav-inner">
     <a href="#dashboard" class="active">داشبورد</a>
     <a href="#charge">مالی</a>
-    <a href="#requests">درخواست‌ها</a>
+    <a href="negin-requests.html">درخواست خدمات</a>
+    <a href="#booking">رزرو</a>
     <a href="#facilities">امکانات</a>
-    
+    <a href="#guests">مهمان</a>
+    <a href="#parcels">مرسولات</a>
+    <a href="#docs">قراردادها</a>
+    <a href="#notices">اطلاعیه‌ها</a>
     <a href="#profile">پرونده واحد</a>
     <a href="#contact">ارتباط</a>
     <details class="nav-more">
@@ -832,7 +844,7 @@ body.modal-open{overflow:hidden}
     <div class="section-title">
       <h2>درخواست‌های من</h2>
       <div class="actions">
-        <button class="btn btn-primary btn-sm" type="button" onclick="openModal('new-request-modal')">+ درخواست جدید</button>
+        <a class="btn btn-primary btn-sm" href="negin-requests.html">+ ثبت درخواست و مشاهده سوابق</a>
       </div>
     </div>
     <div class="filters">
@@ -1037,6 +1049,40 @@ body.modal-open{overflow:hidden}
       <div class="doc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V7h14v14"/></svg></div>
       <div><h4>آیین‌نامه داخلی ساختمان</h4><p>مصوب مجمع عمومی · نسخه ۳ · PDF</p></div>
       <button class="btn btn-sm btn-outline" onclick="showToast('دانلود آیین‌نامه (نمایشی)')">دانلود</button>
+    </div>
+    <div class="doc-row">
+      <div class="doc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4zM8 8h8M8 12h8M8 16h5"/></svg></div>
+      <div><h4>صورت‌جلسات مجمع و هیئت‌مدیره</h4><p>مصوبات، تاریخ جلسه، نسخه ابلاغ‌شده و پیوست‌های مربوط</p></div>
+      <button class="btn btn-sm btn-outline" type="button" onclick="showToast('فهرست صورت‌جلسات در نسخه اجرایی تکمیل می‌شود')">مشاهده</button>
+    </div>
+    <div class="doc-row">
+      <div class="doc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><path d="m8 12 2.5 2.5L16 9"/></svg></div>
+      <div><h4>بیمه مسئولیت و حوادث مشاعات</h4><p>پوشش مسئولیت مدنی، محدوده تعهدات و تاریخ اعتبار بیمه‌نامه</p></div>
+      <button class="btn btn-sm btn-outline" type="button" onclick="showToast('نمایش جزئیات بیمه‌نامه در نسخه اجرایی')">جزئیات</button>
+    </div>
+    <div class="doc-row">
+      <div class="doc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h9l4 4v14H6zM15 3v5h5M9 13h7M9 17h7"/></svg></div>
+      <div><h4>قراردادهای خدمات و نگهداری</h4><p>آسانسور، تأسیسات، نظافت، نگهبانی و خدمات دوره‌ای</p></div>
+      <button class="btn btn-sm btn-outline" type="button" onclick="showToast('فهرست قراردادهای خدماتی در نسخه اجرایی تکمیل می‌شود')">مشاهده</button>
+    </div>
+    <div class="card" style="margin-top:16px">
+      <div class="card-head"><h3>مدیریت و پیگیری اسناد واحد</h3><span class="pill info">پرونده دیجیتال</span></div>
+      <div class="summary" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:10px">
+        <div class="chart-stat"><strong>نسخه‌بندی</strong><span>شماره نسخه و تاریخ آخرین اصلاح</span></div>
+        <div class="chart-stat"><strong>اعتبار اسناد</strong><span>یادآوری تمدید و پایان اعتبار</span></div>
+        <div class="chart-stat"><strong>دسترسی نقش‌محور</strong><span>تفکیک اسناد مالک، ساکن و مدیریت</span></div>
+      </div>
+      <p class="muted-note">در نسخه کامل، هر سند دارای شناسه، صادرکننده، تاریخ صدور، تاریخ اعتبار، وضعیت تأیید، نسخه‌های قبلی و سابقه مشاهده یا دریافت خواهد بود.</p>
+      <div class="section-title" style="margin:18px 0 8px"><h2 style="font-size:15px">درخواست سند یا بررسی قرارداد</h2><span class="hint">ثبت در کارتابل نمایشی</span></div>
+      <form id="contractRequestForm" class="contact-form">
+        <div class="form-row">
+          <div class="form-group"><label for="contractRequestType">نوع درخواست</label><select id="contractRequestType" required><option value="دریافت نسخه قرارداد">دریافت نسخه قرارداد</option><option value="درخواست بررسی مفاد قرارداد">درخواست بررسی مفاد قرارداد</option><option value="درخواست اصلاح اطلاعات">درخواست اصلاح اطلاعات</option><option value="گواهی سکونت یا مالکیت">گواهی سکونت یا مالکیت</option><option value="درخواست پیوست یا الحاقیه">درخواست پیوست یا الحاقیه</option></select></div>
+          <div class="form-group"><label for="contractRequestDoc">سند مرتبط</label><select id="contractRequestDoc"><option>قرارداد شارژ سال ۱۴۰۵</option><option>بیمه‌نامه ساختمان</option><option>آیین‌نامه داخلی</option><option>قرارداد خدمات و نگهداری</option><option>سایر اسناد واحد</option></select></div>
+        </div>
+        <div class="form-group"><label for="contractRequestDetails">توضیحات</label><textarea id="contractRequestDetails" rows="3" maxlength="1200" placeholder="شماره سند، بند موردنظر یا توضیح درخواست را بنویسید" required></textarea></div>
+        <button class="btn btn-primary btn-sm" type="submit">ثبت درخواست در کارتابل</button>
+      </form>
+      <div id="contractRequestHistory" class="req-list" style="margin-top:12px"></div>
     </div>
   </section>
 
@@ -1392,6 +1438,15 @@ body.modal-open{overflow:hidden}
     sections.forEach(section=>observer.observe(section));
   }
   const notif=$('#notifBtn');if(notif)notif.addEventListener('click',()=>{document.getElementById('notices')?.scrollIntoView({behavior:'smooth'});showToast('نمایش اطلاعیه‌های ساختمان');});
+
+  // درخواست اسناد و قراردادها؛ اشتراک ساختار داده با کارتابل مدیریت
+  const contractForm=$('#contractRequestForm'),contractHistory=$('#contractRequestHistory');
+  const contractStoreKey='negin-admin-workspace-v2';
+  const contractUnit=new URLSearchParams(location.search).get('unit')||localStorage.getItem('negin-resident-unit')||'۱۲۰۴';
+  function readContractStore(){try{const value=JSON.parse(localStorage.getItem(contractStoreKey)||'{}');return value&&value.records?value:{version:3,records:{},audit:[]};}catch(_){return {version:3,records:{},audit:[]};}}
+  function renderContractHistory(){if(!contractHistory)return;const db=readContractStore(),rows=(db.records.messages||[]).filter(r=>r.values?.unit===contractUnit&&r.values?.channel==='درخواست قرارداد');contractHistory.innerHTML=rows.length?rows.slice().reverse().map(r=>'<div class="req"><span class="rc-id">'+escapeBookingText(r.id)+'</span><div><div class="rc-title">'+escapeBookingText(r.values.subject)+'</div><div class="rc-meta">'+escapeBookingText(r.values.message)+' · '+new Date(r.createdAt).toLocaleDateString('fa-IR')+'</div></div><span class="status open">'+escapeBookingText(r.status)+'</span></div>').join(''):'<div class="booking-empty">هنوز درخواستی برای اسناد و قراردادها ثبت نشده است.</div>';}
+  if(contractForm){contractForm.addEventListener('submit',event=>{event.preventDefault();const db=readContractStore();db.records.messages=Array.isArray(db.records.messages)?db.records.messages:[];db.audit=Array.isArray(db.audit)?db.audit:[];const now=new Date().toISOString(),type=$('#contractRequestType').value,doc=$('#contractRequestDoc').value,details=$('#contractRequestDetails').value.trim(),record={id:'NP-'+Date.now().toString(36),status:'ثبت اولیه',createdAt:now,updatedAt:now,values:{unit:contractUnit,subject:type,channel:'درخواست قرارداد',priority:'عادی',message:'سند: '+doc+' · '+details,reply:''}};db.records.messages.push(record);db.audit.push({id:record.id,action:'contract-request',moduleId:'messages',recordId:record.id,detail:'درخواست سند از واحد '+contractUnit,at:now});try{localStorage.setItem(contractStoreKey,JSON.stringify(db));window.dispatchEvent(new CustomEvent('negin:data-change',{detail:{version:3}}));contractForm.reset();renderContractHistory();showToast('درخواست در کارتابل محلی ثبت شد؛ ارسال مرکزی انجام نشده است.');}catch(_){showToast('ذخیره درخواست انجام نشد.');}});renderContractHistory();}
+
 
 
   // رزروهای محلی: صرفاً پیش‌نمایش رابط کاربری و بدون ارسال به سرور
