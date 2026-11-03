@@ -841,55 +841,11 @@ body.modal-open{overflow:hidden}
 
   <!-- درخواست‌ها -->
   <section class="portal-section" id="requests">
-    <div class="section-title">
-      <h2>درخواست‌های من</h2>
-      <div class="actions">
-        <a class="btn btn-primary btn-sm" href="negin-requests.html?unit=۱۲۰۴">+ ثبت درخواست و مشاهده سوابق</a>
-      </div>
-    </div>
-    <div class="filters">
-      <button class="chip active" data-filter="all">همه</button>
-      <button class="chip" data-filter="open">در انتظار</button>
-      <button class="chip" data-filter="inprogress">در حال بررسی</button>
-      <button class="chip" data-filter="done">انجام‌شده</button>
-    </div>
-    <div class="req-list" id="reqList">
-      <div class="req" data-status="inprogress" onclick="openModal('req-detail-modal')">
-        <span class="rc-id">#REQ-1405-1204-08</span>
-        <div>
-          <div class="rc-title">نشتی شیر آب آشپزخانه</div>
-          <div class="rc-meta">ثبت: ۲ آذر ۱۴۰۵ · دسته: تأسیسات · مسئول: مرکز فنی</div>
-        </div>
-        <span class="status inprogress">در حال بررسی</span>
-      </div>
-      <div class="req" data-status="open" onclick="openModal('req-detail-modal')">
-        <span class="rc-id">#REQ-1405-1204-07</span>
-        <div>
-          <div class="rc-title">تعویض لامپ راهرو طبقه ۱۲</div>
-          <div class="rc-meta">ثبت: ۲۸ آبان ۱۴۰۵ · دسته: برق · مسئول: مرکز تعمیرات</div>
-        </div>
-        <span class="status open">در انتظار زمان‌بندی</span>
-      </div>
-      <div class="req" data-status="done" onclick="openModal('req-detail-modal')">
-        <span class="rc-id">#REQ-1405-1204-05</span>
-        <div>
-          <div class="rc-title">سرویس دوره‌ای فن‌کویل واحد</div>
-          <div class="rc-meta">ثبت: ۱۲ آبان ۱۴۰۵ · دسته: تأسیسات · انجام: ۱۵ آبان</div>
-        </div>
-        <span class="status done">انجام شد</span>
-      </div>
-      <div class="req" data-status="done" onclick="openModal('req-detail-modal')">
-        <span class="rc-id">#REQ-1405-1204-03</span>
-        <div>
-          <div class="rc-title">نظافت مشاعات طبقه ۱۲</div>
-          <div class="rc-meta">ثبت: ۵ آبان ۱۴۰۵ · دسته: نظافت · انجام: ۶ آبان</div>
-        </div>
-        <span class="status done">انجام شد</span>
-      </div>
-    </div>
-    <div class="empty" id="reqEmpty" style="display:none">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-      درخواستی با این فیلتر یافت نشد.
+    <div class="section-title"><h2>کارتابل درخواست‌های واحد</h2><span class="hint">ثبت و پیگیری یکپارچه خدمات</span></div>
+    <div class="card">
+      <div class="card-head"><h3>درخواست جدید یا پیگیری سوابق</h3><span class="pill info">صفحه مستقل خدمات</span></div>
+      <p class="muted-note">در صفحه درخواست‌های من می‌توانید درخواست تازه ثبت کنید، درخواست‌های قبلی را بر اساس وضعیت فیلتر کنید و پاسخ‌ها و جزئیات رسیدگی را ببینید.</p>
+      <a class="btn btn-primary btn-sm" href="negin-requests.html?unit=۱۲۰۴">ورود به کارتابل درخواست‌ها</a>
     </div>
   </section>
 
