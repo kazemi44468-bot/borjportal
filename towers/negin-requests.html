@@ -688,7 +688,7 @@ body.modal-open{overflow:hidden}
     <div class="ph-user">
       <span class="ph-chip"><span class="dot"></span> واحد ۱۲۰۴</span>
       <span class="ph-avatar" title="حساب کاربری">س</span>
-      <button class="icon-btn" type="button" onclick="showToast('خروج از حساب (نمایشی)')" aria-label="خروج" title="خروج">
+      <button class="icon-btn" type="button" onclick="alert('خروج از حساب در نسخه نمایشی فعال نیست.')" aria-label="خروج" title="خروج">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
       </button>
     </div>
@@ -789,7 +789,7 @@ if(!workspace.hidden)render();
 })();
 
 // کنترل‌های هدر و منوی مشترک با پورتال مالکین
-(()=>{const toggle=document.getElementById('navToggle'),nav=document.getElementById('portalNav');if(toggle&&nav)toggle.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');toggle.setAttribute('aria-expanded',String(open));});const theme=document.getElementById('themeToggle');if(theme)theme.addEventListener('click',()=>{const dark=document.documentElement.getAttribute('data-theme')!=='dark';document.documentElement.setAttribute('data-theme',dark?'dark':'light');try{localStorage.setItem('negin-theme',dark?'dark':'light')}catch(_){}});const saved=(()=>{try{return localStorage.getItem('negin-theme')}catch(_){return null}})();if(saved)document.documentElement.setAttribute('data-theme',saved);const search=document.getElementById('globalSearch');if(search)search.addEventListener('keydown',e=>{if(e.key==='Enter'){const q=search.value.trim();if(q)location.href='negin-piroozi2.html?search='+encodeURIComponent(q)}});})();
+(()=>{const toggle=document.getElementById('navToggle'),nav=document.getElementById('portalNav');if(toggle&&nav)toggle.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');toggle.setAttribute('aria-expanded',String(open));});const theme=document.getElementById('themeToggle');if(theme)theme.addEventListener('click',()=>{const dark=document.documentElement.getAttribute('data-theme')!=='dark';document.documentElement.setAttribute('data-theme',dark?'dark':'light');try{localStorage.setItem('negin-theme',dark?'dark':'light')}catch(_){}});const saved=(()=>{try{return localStorage.getItem('negin-theme')}catch(_){return null}})();if(saved)document.documentElement.setAttribute('data-theme',saved);const search=document.getElementById('globalSearch');if(search)search.addEventListener('keydown',e=>{if(e.key==='Enter'){const q=search.value.trim();if(q)location.href='negin-piroozi2.html?search='+encodeURIComponent(q)}});const notice=document.getElementById('notifBtn');if(notice)notice.addEventListener('click',()=>location.href='negin-piroozi2.html#notices');if(nav)nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('is-open');if(toggle)toggle.setAttribute('aria-expanded','false')}));})();
 </script>
 </body>
 </html>
