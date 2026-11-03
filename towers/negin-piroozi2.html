@@ -83,6 +83,30 @@ img{max-width:100%;display:block}
 [data-theme="dark"] .ph-avatar{background:linear-gradient(145deg,#1e2e29,#2a2620)}
 .nav-toggle{display:none;width:40px;height:40px;border:1px solid var(--line);border-radius:10px;background:var(--white);cursor:pointer;position:relative;flex-shrink:0}
 
+/* پیش‌نمایش اعلان و پرونده کاربر */
+.ph-chip,.ph-avatar{font-family:inherit;cursor:pointer}
+.ph-chip:hover,.ph-avatar:hover{border-color:var(--gold);box-shadow:var(--shadow-sm)}
+.profile-chevron{font-size:15px;color:var(--muted);margin-right:2px}
+#notifBtn[aria-expanded="true"]{border-color:var(--gold);color:var(--green)}
+.notice-preview-list{display:grid;gap:10px;margin:16px 0}
+.notice-preview-item{display:grid;grid-template-columns:auto 1fr;gap:11px;padding:13px;border:1px solid var(--line);border-radius:12px;background:var(--paper);cursor:pointer;text-align:right;color:var(--ink);font:inherit;width:100%;transition:.18s}
+.notice-preview-item:hover{border-color:var(--gold);transform:translateY(-1px)}
+.notice-preview-mark{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--paper-2);color:var(--green);font-weight:700}
+.notice-preview-item.urgent .notice-preview-mark{background:var(--danger-bg);color:var(--danger)}
+.notice-preview-item strong{display:block;font-size:13px;color:var(--green-deep);margin-bottom:3px}
+.notice-preview-item small{display:block;color:var(--muted);font-size:11px}
+.notice-preview-item p{margin:5px 0 0;color:var(--ink-soft);font-size:12px;line-height:1.8}
+.notice-detail-meta{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.notice-detail-body{padding:14px;background:var(--paper);border:1px solid var(--line);border-radius:12px;color:var(--ink-soft);line-height:2}
+.profile-summary-head{display:flex;align-items:center;gap:13px;padding:14px;background:var(--paper);border:1px solid var(--line);border-radius:13px;margin:15px 0}
+.profile-summary-avatar{width:48px;height:48px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(145deg,#e3efe9,#f4f0e3);color:var(--green-deep);font-weight:700;font-size:17px}
+.profile-summary-head strong{display:block;color:var(--green-deep);font-size:14px}
+.profile-summary-head small{color:var(--muted);font-size:11px}
+.profile-modal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.profile-modal-grid .profile-item{min-width:0}
+.profile-modal-grid .value{overflow-wrap:anywhere}
+@media(max-width:640px){.profile-modal-grid{grid-template-columns:1fr}.modal-overlay{padding:12px}.modal{padding:20px 16px}}
+
 /* تب‌ها */
 .tab-nav{position:sticky;top:var(--header-h);z-index:35;background:var(--white);border-bottom:1px solid var(--line);box-shadow:0 2px 10px rgba(23,63,60,.04);overflow-x:auto;scrollbar-width:none;transition:background var(--transition)}
 .tab-nav::-webkit-scrollbar{display:none}
@@ -648,8 +672,8 @@ body.modal-open{overflow:hidden}
       </button>
     </div>
     <div class="ph-user">
-      <span class="ph-chip"><span class="dot"></span> واحد ۱۲۰۴</span>
-      <span class="ph-avatar" title="محمدرضا رضایی">م.ر</span>
+      <button class="ph-chip" id="unitProfileBtn" type="button" aria-haspopup="dialog" aria-controls="unit-profile-modal"><span class="dot"></span> واحد ۱۲۰۴ <span class="profile-chevron">⌄</span></button>
+      <button class="ph-avatar" id="memberProfileBtn" type="button" title="مشخصات مالک و ساکن" aria-label="مشخصات مالک و ساکن" aria-haspopup="dialog" aria-controls="member-profile-modal">م.ر</button>
       <button class="icon-btn" type="button" onclick="showToast('خروج از حساب (نمایشی)')" aria-label="خروج" title="خروج">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
       </button>
@@ -1331,6 +1355,52 @@ body.modal-open{overflow:hidden}
     <form class="contact-form demo-form"><div class="form-group"><label>موضوع تیکت</label><input required placeholder="موضوع را وارد کنید"></div><div class="form-group"><label>شرح مسئله</label><textarea required placeholder="جزئیات مورد را بنویسید"></textarea></div><button class="btn btn-primary" type="submit">ثبت آزمایشی تیکت</button></form>
   </div>
 </div>
+<div class="modal-overlay" id="notifications-modal" role="dialog" aria-modal="true" aria-labelledby="notificationsTitle">
+  <div class="modal"><button class="modal-close" type="button" onclick="closeModal('notifications-modal')" aria-label="بستن">×</button>
+    <h3 id="notificationsTitle">اعلان‌ها و اطلاعیه‌های برج</h3><p class="modal-sub">آخرین پیام‌های مدیریت، زمان‌بندی خدمات و رویدادهای ساختمان</p>
+    <div class="notice-preview-list" id="notificationPreviewList"></div>
+    <button class="btn btn-outline btn-block" type="button" onclick="closeModal('notifications-modal');document.getElementById('notices').scrollIntoView({behavior:'smooth'})">مشاهده آرشیو اطلاعیه‌ها</button>
+  </div>
+</div>
+<div class="modal-overlay" id="notice-detail-modal" role="dialog" aria-modal="true" aria-labelledby="noticeDetailTitle">
+  <div class="modal"><button class="modal-close" type="button" onclick="closeModal('notice-detail-modal')" aria-label="بستن">×</button>
+    <h3 id="noticeDetailTitle">جزئیات اطلاعیه</h3><div class="notice-detail-meta" id="noticeDetailMeta"></div><div class="notice-detail-body" id="noticeDetailBody"></div>
+    <p class="modal-sub" id="noticeDetailFooter"></p>
+  </div>
+</div>
+<div class="modal-overlay" id="unit-profile-modal" role="dialog" aria-modal="true" aria-labelledby="unitProfileTitle">
+  <div class="modal"><button class="modal-close" type="button" onclick="closeModal('unit-profile-modal')" aria-label="بستن">×</button>
+    <h3 id="unitProfileTitle">خلاصه پرونده واحد ۱۲۰۴</h3><p class="modal-sub">مشخصات پایه واحد و امکانات اختصاص‌یافته</p>
+    <div class="profile-modal-grid">
+      <div class="profile-item"><div class="label">شماره واحد</div><div class="value">۱۲۰۴</div></div>
+      <div class="profile-item"><div class="label">موقعیت</div><div class="value">برج اصلی · طبقه دوازدهم</div></div>
+      <div class="profile-item"><div class="label">زیربنا</div><div class="value">۱۴۵ مترمربع</div></div>
+      <div class="profile-item"><div class="label">وضعیت بهره‌برداری</div><div class="value">مسکونی · دارای ساکن</div></div>
+      <div class="profile-item"><div class="label">پارکینگ</div><div class="value">۲ جایگاه · P-۲۱ و P-۲۲</div></div>
+      <div class="profile-item"><div class="label">انباری</div><div class="value">شماره ۴۸ · طبقه منفی یک</div></div>
+      <div class="profile-item"><div class="label">کد پرونده</div><div class="value">NP-1204</div></div>
+      <div class="profile-item"><div class="label">وضعیت پرونده</div><div class="value"><span class="pill paid">فعال</span></div></div>
+    </div>
+    <p class="modal-sub" style="margin-top:13px">اطلاعات این پرونده نمونه و صرفاً برای نمایش قابلیت سامانه است.</p>
+    <button class="btn btn-primary btn-block" type="button" onclick="closeModal('unit-profile-modal');document.getElementById('profile').scrollIntoView({behavior:'smooth'})">مشاهده پرونده کامل واحد</button>
+  </div>
+</div>
+<div class="modal-overlay" id="member-profile-modal" role="dialog" aria-modal="true" aria-labelledby="memberProfileTitle">
+  <div class="modal"><button class="modal-close" type="button" onclick="closeModal('member-profile-modal')" aria-label="بستن">×</button>
+    <h3 id="memberProfileTitle">مشخصات مالک و ساکن</h3>
+    <div class="profile-summary-head"><span class="profile-summary-avatar">م.ر</span><span><strong>محمدرضا رضایی</strong><small>مالک و مدیر پرونده واحد ۱۲۰۴ · عضو اصلی</small></span></div>
+    <div class="profile-modal-grid">
+      <div class="profile-item"><div class="label">نقش در ساختمان</div><div class="value">مالک / ساکن</div></div>
+      <div class="profile-item"><div class="label">واحد مرتبط</div><div class="value">۱۲۰۴ · برج اصلی</div></div>
+      <div class="profile-item"><div class="label">وضعیت عضویت</div><div class="value"><span class="pill paid">فعال</span></div></div>
+      <div class="profile-item"><div class="label">سطح دسترسی</div><div class="value">خدمات و پرونده واحد</div></div>
+      <div class="profile-item"><div class="label">تلفن همراه</div><div class="value">۰۹۱۲ *** **۴۸</div></div>
+      <div class="profile-item"><div class="label">نشانی مکاتبات</div><div class="value">برج نگین پیروزی · واحد ۱۲۰۴</div></div>
+    </div>
+    <p class="modal-sub" style="margin-top:13px">اطلاعات هویتی و تماس در این نسخه ساختگی و نمایشی است و به حساب واقعی متصل نیست.</p>
+    <button class="btn btn-primary btn-block" type="button" onclick="closeModal('member-profile-modal');document.getElementById('profile').scrollIntoView({behavior:'smooth'})">مشاهده پرونده و اعضای واحد</button>
+  </div>
+</div>
 <button class="back-to-top" id="backToTop" type="button" aria-label="بازگشت به بالای صفحه" title="بازگشت به بالا"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 14 6-6 6 6"/></svg></button>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -1393,7 +1463,44 @@ body.modal-open{overflow:hidden}
     },{rootMargin:'-22% 0px -68% 0px',threshold:0});
     sections.forEach(section=>observer.observe(section));
   }
-  const notif=$('#notifBtn');if(notif)notif.addEventListener('click',()=>{document.getElementById('notices')?.scrollIntoView({behavior:'smooth'});showToast('نمایش اطلاعیه‌های ساختمان');});
+  const notif=$('#notifBtn'),previewList=$('#notificationPreviewList');
+  function openNoticeDetail(notice){
+    if(!notice)return;
+    const title=notice.querySelector('h4')?.cloneNode(true);title?.querySelector('.tag')?.remove();
+    $('#noticeDetailTitle').textContent=title?.textContent.trim()||'جزئیات اطلاعیه';
+    const time=notice.querySelector('time')?.textContent.trim()||'';
+    const tag=notice.querySelector('.tag')?.textContent.trim()||(notice.classList.contains('urgent')?'فوری':'عمومی');
+    $('#noticeDetailMeta').innerHTML='<span class="pill '+(notice.classList.contains('urgent')?'due':'info')+'">'+escapeBookingText(tag)+'</span><span class="pill">'+escapeBookingText(time)+'</span>';
+    $('#noticeDetailBody').textContent=notice.querySelector('p')?.textContent.trim()||'جزئیاتی برای این اطلاعیه ثبت نشده است.';
+    $('#noticeDetailFooter').textContent='این پیام در بخش اطلاعیه‌های برج نگین پیروزی منتشر شده است.';
+    openModal('notice-detail-modal');
+  }
+  function renderNotificationPreview(){
+    if(!previewList)return;
+    const notices=$('#notices .notice').slice(0,4);
+    previewList.innerHTML=notices.map((notice,index)=>{
+      const title=notice.querySelector('h4')?.cloneNode(true);title?.querySelector('.tag')?.remove();
+      const urgent=notice.classList.contains('urgent');
+      const type=notice.querySelector('.tag')?.textContent.trim()||(urgent?'فوری':'اطلاعیه');
+      return '<button class="notice-preview-item '+(urgent?'urgent':'')+'" type="button" data-preview-index="'+index+'"><span class="notice-preview-mark">'+(urgent?'!':'●')+'</span><span><strong>'+escapeBookingText(title?.textContent.trim()||'اطلاعیه ساختمان')+'</strong><small>'+escapeBookingText(type)+' · '+escapeBookingText(notice.querySelector('time')?.textContent.trim()||'')+'</small><p>'+escapeBookingText(notice.querySelector('p')?.textContent.trim()||'')+'</p></span></button>';
+    }).join('');
+    previewList.querySelectorAll('[data-preview-index]').forEach(button=>button.addEventListener('click',()=>{
+      const notice=notices[Number(button.dataset.previewIndex)];
+      closeModal('notifications-modal');openNoticeDetail(notice);
+    }));
+  }
+  if(notif)notif.addEventListener('click',()=>{
+    renderNotificationPreview();openModal('notifications-modal');notif.setAttribute('aria-expanded','true');
+  });
+  ['notifications-modal'].forEach(id=>{const modal=document.getElementById(id);if(modal){const observer=new MutationObserver(()=>{if(!modal.classList.contains('open'))notif?.setAttribute('aria-expanded','false');});observer.observe(modal,{attributes:true,attributeFilter:['class']});}});
+  $('#unitProfileBtn')?.addEventListener('click',()=>openModal('unit-profile-modal'));
+  $('#memberProfileBtn')?.addEventListener('click',()=>openModal('member-profile-modal'));
+  $('#notices .notice').forEach(notice=>{
+    notice.setAttribute('tabindex','0');notice.setAttribute('role','button');
+    notice.setAttribute('aria-label','نمایش جزئیات '+(notice.querySelector('h4')?.textContent.trim()||'اطلاعیه'));
+    notice.addEventListener('click',()=>openNoticeDetail(notice));
+    notice.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();openNoticeDetail(notice);}});
+  });
 
   // درخواست اسناد و قراردادها؛ اشتراک ساختار داده با کارتابل مدیریت
   const contractForm=$('#contractRequestForm'),contractHistory=$('#contractRequestHistory');
