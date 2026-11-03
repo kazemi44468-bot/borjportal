@@ -1,5 +1,5 @@
 (()=>{'use strict';
-const root=document.querySelector('.main > .container'),nav=document.querySelector('#portalNav .nav-more-menu');if(!root||!nav)return;
+const root=document.querySelector('.main > .container'),nav=document.querySelector('#buildingNav .nav-more-menu');if(!root||!nav)return;
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const money=v=>Number(v||0).toLocaleString('fa-IR');
 const dbKey='negin-admin-workspace-v2';
