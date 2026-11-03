@@ -588,6 +588,10 @@ body.modal-open{overflow:hidden}
 }
 
 
+
+#buildingNav .nav-more-menu{grid-template-columns:repeat(2,minmax(190px,1fr));min-width:min(470px,90vw)}
+#buildingNav .nav-menu-group:last-child{grid-column:1/-1}
+@media(max-width:760px){#buildingNav .nav-more-menu{grid-template-columns:1fr;min-width:0}#buildingNav .nav-menu-group:last-child{grid-column:auto}}
 /* دسترسی سریع‌تر به بخش‌های پرتکرار در نوار اصلی */
 .tab-nav-inner{gap:2px}
 .tab-nav a{padding:10px 9px;font-size:11.5px}
@@ -674,6 +678,10 @@ body.modal-open{overflow:hidden}
         <div class="nav-menu-group"><b>خرید و سرگرمی</b><a href="negin-market.html">بازار برج و سبد خرید</a><a href="negin-media.html">چندرسانه‌ای، فیلم و موسیقی</a><a href="negin-games.html">باشگاه بازی و مسابقات</a></div>
         <div class="nav-menu-group"><b>خدمات دیجیتال و روزمره</b><a href="#computer-center">معرفی مرکز خدمات دیجیتال</a><a href="negin-computer.html">ورود و ثبت درخواست خدمات رایانه‌ای</a><a href="#booking">رزرو و سفارش خدمات</a><a href="#technical">تعمیرات و خدمات فنی</a><a href="#homecare">خدمات منزل و نظافت</a></div>
       </div>
+    </details>
+    <details class="nav-more" id="buildingNav">
+      <summary>امور برج <svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="nav-more-menu"></div>
     </details>
     <details class="nav-more">
       <summary>ساختمان و تردد <svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
